@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B3D4FB01E702A39004EFDB9 /* custom_navbar_return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */; };
+		8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */; };
 		8B7A21FF1E6D52040008727C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A21FE1E6D52040008727C /* main.m */; };
 		8B7A22021E6D52040008727C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22011E6D52040008727C /* AppDelegate.m */; };
 		8B7A22051E6D52040008727C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22041E6D52040008727C /* ViewController.m */; };
@@ -15,6 +17,7 @@
 		8B7A220D1E6D52040008727C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A220B1E6D52040008727C /* LaunchScreen.storyboard */; };
 		8B7A22181E6D52040008727C /* WJKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22171E6D52040008727C /* WJKitTests.m */; };
 		8B7A22231E6D52050008727C /* WJKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22221E6D52050008727C /* WJKitUITests.m */; };
+		8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom_navbar_return@2x.png"; sourceTree = "<group>"; };
+		8B6E61DC1E6D97BA001DAA39 /* UIViewController+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WJAdd.h"; sourceTree = "<group>"; };
+		8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WJAdd.m"; sourceTree = "<group>"; };
 		8B7A21FA1E6D52040008727C /* WJKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7A21FE1E6D52040008727C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B7A22001E6D52040008727C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +57,8 @@
 		8B7A221E1E6D52050008727C /* WJKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WJKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7A22221E6D52050008727C /* WJKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJKitUITests.m; sourceTree = "<group>"; };
 		8B7A22241E6D52050008727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7A22381E6D53BC0008727C /* NSObject+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WJAdd.h"; sourceTree = "<group>"; };
+		8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WJAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 		8B7A21FC1E6D52040008727C /* WJKit */ = {
 			isa = PBXGroup;
 			children = (
+				8B7A22331E6D530D0008727C /* WJKit */,
 				8B7A22001E6D52040008727C /* AppDelegate.h */,
 				8B7A22011E6D52040008727C /* AppDelegate.m */,
 				8B7A22031E6D52040008727C /* ViewController.h */,
@@ -109,6 +118,7 @@
 				8B7A22091E6D52040008727C /* Assets.xcassets */,
 				8B7A220B1E6D52040008727C /* LaunchScreen.storyboard */,
 				8B7A220E1E6D52040008727C /* Info.plist */,
+				8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */,
 				8B7A21FD1E6D52040008727C /* Supporting Files */,
 			);
 			path = WJKit;
@@ -138,6 +148,49 @@
 				8B7A22241E6D52050008727C /* Info.plist */,
 			);
 			path = WJKitUITests;
+			sourceTree = "<group>";
+		};
+		8B7A22331E6D530D0008727C /* WJKit */ = {
+			isa = PBXGroup;
+			children = (
+				8B7A22341E6D530D0008727C /* Base */,
+			);
+			path = WJKit;
+			sourceTree = "<group>";
+		};
+		8B7A22341E6D530D0008727C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8B7A22351E6D530D0008727C /* Foundation */,
+				8B7A22361E6D530D0008727C /* Quartz */,
+				8B7A22371E6D530D0008727C /* UIKit */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8B7A22351E6D530D0008727C /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				8B7A22381E6D53BC0008727C /* NSObject+WJAdd.h */,
+				8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		8B7A22361E6D530D0008727C /* Quartz */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Quartz;
+			sourceTree = "<group>";
+		};
+		8B7A22371E6D530D0008727C /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8B6E61DC1E6D97BA001DAA39 /* UIViewController+WJAdd.h */,
+				8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +305,7 @@
 				8B7A220D1E6D52040008727C /* LaunchScreen.storyboard in Resources */,
 				8B7A220A1E6D52040008727C /* Assets.xcassets in Resources */,
 				8B7A22081E6D52040008727C /* Main.storyboard in Resources */,
+				8B3D4FB01E702A39004EFDB9 /* custom_navbar_return@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */,
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
 				8B7A22021E6D52040008727C /* AppDelegate.m in Sources */,
+				8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */,
 				8B7A21FF1E6D52040008727C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +572,7 @@
 				8B7A22291E6D52050008727C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B7A222A1E6D52050008727C /* Build configuration list for PBXNativeTarget "WJKitTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +581,7 @@
 				8B7A222C1E6D52050008727C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B7A222D1E6D52050008727C /* Build configuration list for PBXNativeTarget "WJKitUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +590,7 @@
 				8B7A222F1E6D52050008727C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
