@@ -86,5 +86,10 @@
  */
 - (NSString *)className;
 
+/**
+ Returns a copy of the instance with `NSKeyedArchiver` and ``NSKeyedUnarchiver``.
+ Returns nil if an error occurs.
+ */
+- (id)deepCopy;
 
 @end
