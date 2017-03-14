@@ -7,7 +7,11 @@
 //
 
 #import "NSObject+WJAdd.h"
+#import "WJKitMacro.h"
 #import <objc/runtime.h>
+
+WJSYNTH_DUMMY_CLASS(NSObject_WJAdd)
+
 
 @implementation NSObject (WJAdd)
 

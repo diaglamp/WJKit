@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Common tasks for NSObject.
  */
@@ -47,7 +49,7 @@
  @param value   The object to associate.
  @param key     The pointer to get value from `self`.
  */
-- (void)setAssociateValue:(id)value withKey:(void *)key;
+- (void)setAssociateValue:(nullable id)value withKey:(void *)key;
 
 /**
  Associate one object to `self`, as if it was a weak property (week, nonatomic).
@@ -55,14 +57,14 @@
  @param value  The object to associate.
  @param key    The pointer to get value from `self`.
  */
-- (void)setAssociateWeakValue:(id)value withKey:(void *)key;
+- (void)setAssociateWeakValue:(nullable id)value withKey:(void *)key;
 
 /**
  Get the associated value from `self`.
  
  @param key The pointer to get value from `self`.
  */
-- (id)getAssociatedValueForKey:(void *)key;
+- (nullable id)getAssociatedValueForKey:(void *)key;
 
 /**
  Remove all associated values.
@@ -90,6 +92,8 @@
  Returns a copy of the instance with `NSKeyedArchiver` and ``NSKeyedUnarchiver``.
  Returns nil if an error occurs.
  */
-- (id)deepCopy;
+- (nullable id)deepCopy;
 
 @end
+
+NS_ASSUME_NONNULL_END
