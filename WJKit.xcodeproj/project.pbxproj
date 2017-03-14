@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E82371E77DDB4008AECAB /* NSObject+WJAddForKVO.m */; };
+		8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E823A1E77F60F008AECAB /* NSString+WJAdd.m */; };
 		8B3D4FB01E702A39004EFDB9 /* custom_navbar_return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */; };
 		8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */; };
 		8B7A21FF1E6D52040008727C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A21FE1E6D52040008727C /* main.m */; };
@@ -42,6 +43,8 @@
 		8B2E82351E77DC2A008AECAB /* WJKitMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJKitMacro.h; sourceTree = "<group>"; };
 		8B2E82361E77DDB4008AECAB /* NSObject+WJAddForKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WJAddForKVO.h"; sourceTree = "<group>"; };
 		8B2E82371E77DDB4008AECAB /* NSObject+WJAddForKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WJAddForKVO.m"; sourceTree = "<group>"; };
+		8B2E82391E77F60F008AECAB /* NSString+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WJAdd.h"; sourceTree = "<group>"; };
+		8B2E823A1E77F60F008AECAB /* NSString+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WJAdd.m"; sourceTree = "<group>"; };
 		8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom_navbar_return@2x.png"; sourceTree = "<group>"; };
 		8B6E61DC1E6D97BA001DAA39 /* UIViewController+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WJAdd.h"; sourceTree = "<group>"; };
 		8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WJAdd.m"; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */,
 				8B2E82361E77DDB4008AECAB /* NSObject+WJAddForKVO.h */,
 				8B2E82371E77DDB4008AECAB /* NSObject+WJAddForKVO.m */,
+				8B2E82391E77F60F008AECAB /* NSString+WJAdd.h */,
+				8B2E823A1E77F60F008AECAB /* NSString+WJAdd.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */,
 				8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */,
 				8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */,
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
