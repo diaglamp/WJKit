@@ -15,6 +15,60 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface NSString (WJAdd)
 
+#pragma mark - Hash
+///=============================================================================
+/// @name Hash
+///=============================================================================
+
+/**
+ Returns a lowercase NSString for md5 hash.
+ */
+- (nullable NSString *)md5String;
+
+/**
+ Returns a lowercase NSString for sha1 hash.
+ */
+- (nullable NSString *)sha1String;
+
+/**
+ Returns a lowercase NSString for sha256 hash.
+ */
+- (nullable NSString *)sha256String;
+
+/**
+ Returns a lowercase NSString for sha512 hash.
+ */
+- (nullable NSString *)sha512String;
+
+/**
+ Returns a lowercase NSString for hmac using algorithm md5 with key.
+ @param key The hmac key.
+ */
+- (nullable NSString *)hmacMD5StringWithKey:(NSString *)key;
+
+/**
+ Returns a lowercase NSString for hmac using algorithm sha1 with key.
+ @param key The hmac key.
+ */
+- (nullable NSString *)hmacSHA1StringWithKey:(NSString *)key;
+
+/**
+ Returns a lowercase NSString for hmac using algorithm sha256 with key.
+ @param key The hmac key.
+ */
+- (nullable NSString *)hmacSHA256StringWithKey:(NSString *)key;
+
+/**
+ Returns a lowercase NSString for hmac using algorithm sha512 with key.
+ @param key The hmac key.
+ */
+- (nullable NSString *)hmacSHA512StringWithKey:(NSString *)key;
+
+/**
+ Returns a lowercase NSString for crc32 hash.
+ */
+- (nullable NSString *)crc32String;
+
 #pragma mark - Drawing
 ///=============================================================================
 /// @name Drawing

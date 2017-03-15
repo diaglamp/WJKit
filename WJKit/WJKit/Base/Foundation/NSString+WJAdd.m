@@ -8,10 +8,55 @@
 
 #import "NSString+WJAdd.h"
 #import "WJKitMacro.h"
+#import "NSData+WJAdd.h"
 
 WJSYNTH_DUMMY_CLASS(NSString_WJAdd)
 
 @implementation NSString (WJAdd)
+
+#pragma mark - Hash
+///=============================================================================
+/// @name Hash
+///=============================================================================
+- (NSString *)md5String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
+}
+
+- (NSString *)sha1String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha1String];
+}
+
+- (NSString *)sha256String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha256String];
+}
+
+- (NSString *)sha512String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha512String];
+}
+
+- (NSString *)hmacMD5StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding]
+            hmacMD5StringWithKey:key];
+}
+
+- (NSString *)hmacSHA1StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding]
+            hmacSHA1StringWithKey:key];
+}
+
+- (NSString *)hmacSHA256StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding]
+            hmacSHA256StringWithKey:key];
+}
+
+- (NSString *)hmacSHA512StringWithKey:(NSString *)key {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding]
+            hmacSHA512StringWithKey:key];
+}
+
+- (NSString *)crc32String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] crc32String];
+}
 
 #pragma mark - Drawing
 ///=============================================================================
