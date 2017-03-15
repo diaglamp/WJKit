@@ -22,6 +22,7 @@
 		8B7A22181E6D52040008727C /* WJKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22171E6D52040008727C /* WJKitTests.m */; };
 		8B7A22231E6D52050008727C /* WJKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22221E6D52050008727C /* WJKitUITests.m */; };
 		8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */; };
+		CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		8B7A22241E6D52050008727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B7A22381E6D53BC0008727C /* NSObject+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WJAdd.h"; sourceTree = "<group>"; };
 		8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WJAdd.m"; sourceTree = "<group>"; };
+		CC342C3A1E7964B9004EAA2F /* NSArray+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WJAdd.h"; sourceTree = "<group>"; };
+		CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WJAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,8 @@
 				8B2E823D1E781EFE008AECAB /* NSNumber+WJAdd.m */,
 				8B2E823F1E781FF7008AECAB /* NSData+WJAdd.h */,
 				8B2E82401E781FF7008AECAB /* NSData+WJAdd.m */,
+				CC342C3A1E7964B9004EAA2F /* NSArray+WJAdd.h */,
+				CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
 				8B2E82411E781FF7008AECAB /* NSData+WJAdd.m in Sources */,
 				8B7A22021E6D52040008727C /* AppDelegate.m in Sources */,
+				CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */,
 				8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */,
 				8B7A21FF1E6D52040008727C /* main.m in Sources */,
 			);

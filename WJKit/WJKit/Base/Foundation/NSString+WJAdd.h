@@ -185,6 +185,35 @@ NS_ASSUME_NONNULL_BEGIN
  @return the trimmed string.
  */
 - (NSString *)stringByTrim;
+
+/**
+ Try to parse this string and returns an `NSNumber`.
+ @return Returns an `NSNumber` if parse succeed, or nil if an error occurs.
+ */
+- (nullable NSNumber *)numberValue;
+
+/**
+ Returns an NSData using UTF-8 encoding.
+ */
+- (nullable NSData *)dataValue;
+
+/**
+ Returns an NSDictionary/NSArray which is decoded from receiver.
+ Returns nil if an error occurs.
+ 
+ e.g. NSString: @"{"name":"a","count":2}"  => NSDictionary: @[@"name":@"a",@"count":@2]
+ */
+- (nullable id)jsonValueDecoded;
+
+/**
+ Create a string from the file in main bundle (similar to [UIImage imageNamed:]).
+ 
+ @param name The file name (in main bundle).
+ 
+ @return A new string create from the file in UTF-8 character encoding.
+ */
++ (nullable NSString *)stringNamed:(NSString *)name;
+
 @end
 
 NS_ASSUME_NONNULL_END

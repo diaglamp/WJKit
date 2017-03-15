@@ -9,6 +9,7 @@
 #import "NSString+WJAdd.h"
 #import "WJKitMacro.h"
 #import "NSData+WJAdd.h"
+#import "NSNumber+WJAdd.h"
 
 WJSYNTH_DUMMY_CLASS(NSString_WJAdd)
 
@@ -134,4 +135,27 @@ WJSYNTH_DUMMY_CLASS(NSString_WJAdd)
     NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     return [self stringByTrimmingCharactersInSet:set];
 }
+
+- (NSNumber *)numberValue {
+    return [NSNumber numberWithString:self];
+}
+
+- (NSData *)dataValue {
+    return [self dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (id)jsonValueDecoded {
+    return [[self dataValue] jsonValueDecoded];
+}
+
++ (NSString *)stringNamed:(NSString *)name {
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@""];
+    NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    if (!str) {
+        path = [[NSBundle mainBundle] pathForResource:name ofType:@"txt"];
+        str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    }
+    return str;
+}
+
 @end
