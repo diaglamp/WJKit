@@ -24,6 +24,8 @@
 		8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */; };
 		CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */; };
 		CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */; };
+		CC3F183B1E7A345300C711AD /* NSDate+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F183A1E7A345300C711AD /* NSDate+WJAdd.m */; };
+		CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3F183D1E7A692600C711AD /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,9 @@
 		CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WJAdd.m"; sourceTree = "<group>"; };
 		CC3F18361E7A2C8600C711AD /* NSDictionary+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+WJAdd.h"; sourceTree = "<group>"; };
 		CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+WJAdd.m"; sourceTree = "<group>"; };
+		CC3F18391E7A345300C711AD /* NSDate+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WJAdd.h"; sourceTree = "<group>"; };
+		CC3F183A1E7A345300C711AD /* NSDate+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WJAdd.m"; sourceTree = "<group>"; };
+		CC3F183D1E7A692600C711AD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +118,7 @@
 				8B7A22161E6D52040008727C /* WJKitTests */,
 				8B7A22211E6D52050008727C /* WJKitUITests */,
 				8B7A21FB1E6D52040008727C /* Products */,
+				CC3F183C1E7A692600C711AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,6 +212,8 @@
 				CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */,
 				CC3F18361E7A2C8600C711AD /* NSDictionary+WJAdd.h */,
 				CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */,
+				CC3F18391E7A345300C711AD /* NSDate+WJAdd.h */,
+				CC3F183A1E7A345300C711AD /* NSDate+WJAdd.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -223,6 +232,14 @@
 				8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		CC3F183C1E7A692600C711AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC3F183D1E7A692600C711AD /* libz.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +388,7 @@
 				8B2E82411E781FF7008AECAB /* NSData+WJAdd.m in Sources */,
 				8B7A22021E6D52040008727C /* AppDelegate.m in Sources */,
 				CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */,
+				CC3F183B1E7A345300C711AD /* NSDate+WJAdd.m in Sources */,
 				8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */,
 				8B7A21FF1E6D52040008727C /* main.m in Sources */,
 			);
@@ -523,6 +541,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZYTPM95J44;
 				INFOPLIST_FILE = WJKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.XHJ.WJKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -535,6 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZYTPM95J44;
 				INFOPLIST_FILE = WJKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.XHJ.WJKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

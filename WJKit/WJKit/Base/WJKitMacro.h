@@ -6,6 +6,9 @@
 //  Copyright © 2017年 XHJ. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 #ifndef WJKitMacro_h
 #define WJKitMacro_h
 
@@ -24,5 +27,11 @@
 @interface WJSYNTH_DUMMY_CLASS_ ## _name_ : NSObject @end \
 @implementation WJSYNTH_DUMMY_CLASS_ ## _name_ @end
 #endif
+
+
+//大于等于 9.0
+#define IOS9_OR_LATER	([[[UIDevice currentDevice] systemVersion] compare:@"9.0" options:NSNumericSearch] != NSOrderedAscending)
+//大于等于 8.0
+#define IOS8_OR_LATER	([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending)
 
 #endif /* WJKitMacro_h */
