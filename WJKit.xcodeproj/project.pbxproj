@@ -27,6 +27,7 @@
 		CC3F183B1E7A345300C711AD /* NSDate+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F183A1E7A345300C711AD /* NSDate+WJAdd.m */; };
 		CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3F183D1E7A692600C711AD /* libz.tbd */; };
 		CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */; };
+		CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		CC3F183D1E7A692600C711AD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CC3F183F1E7A7EB800C711AD /* UIView+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WJAdd.h"; sourceTree = "<group>"; };
 		CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WJAdd.m"; sourceTree = "<group>"; };
+		CC3F18421E7AB46D00C711AD /* UIColor+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WJAdd.h"; sourceTree = "<group>"; };
+		CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WJAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +238,8 @@
 				8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */,
 				CC3F183F1E7A7EB800C711AD /* UIView+WJAdd.h */,
 				CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */,
+				CC3F18421E7AB46D00C711AD /* UIColor+WJAdd.h */,
+				CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 				8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */,
 				8B2E823E1E781EFE008AECAB /* NSNumber+WJAdd.m in Sources */,
 				CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */,
+				CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */,
 				8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */,
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
 				8B2E82411E781FF7008AECAB /* NSData+WJAdd.m in Sources */,
