@@ -26,6 +26,7 @@
 		CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */; };
 		CC3F183B1E7A345300C711AD /* NSDate+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F183A1E7A345300C711AD /* NSDate+WJAdd.m */; };
 		CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3F183D1E7A692600C711AD /* libz.tbd */; };
+		CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		CC3F18391E7A345300C711AD /* NSDate+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WJAdd.h"; sourceTree = "<group>"; };
 		CC3F183A1E7A345300C711AD /* NSDate+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WJAdd.m"; sourceTree = "<group>"; };
 		CC3F183D1E7A692600C711AD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		CC3F183F1E7A7EB800C711AD /* UIView+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WJAdd.h"; sourceTree = "<group>"; };
+		CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WJAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +192,8 @@
 			children = (
 				8B2E82351E77DC2A008AECAB /* WJKitMacro.h */,
 				8B7A22351E6D530D0008727C /* Foundation */,
-				8B7A22361E6D530D0008727C /* Quartz */,
 				8B7A22371E6D530D0008727C /* UIKit */,
+				8B7A22361E6D530D0008727C /* Quartz */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -230,6 +233,8 @@
 			children = (
 				8B6E61DC1E6D97BA001DAA39 /* UIViewController+WJAdd.h */,
 				8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */,
+				CC3F183F1E7A7EB800C711AD /* UIView+WJAdd.h */,
+				CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */,
 				CC3F183B1E7A345300C711AD /* NSDate+WJAdd.m in Sources */,
 				8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */,
+				CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */,
 				8B7A21FF1E6D52040008727C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
