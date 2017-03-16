@@ -23,6 +23,7 @@
 		8B7A22231E6D52050008727C /* WJKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22221E6D52050008727C /* WJKitUITests.m */; };
 		8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */; };
 		CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */; };
+		CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WJAdd.m"; sourceTree = "<group>"; };
 		CC342C3A1E7964B9004EAA2F /* NSArray+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WJAdd.h"; sourceTree = "<group>"; };
 		CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WJAdd.m"; sourceTree = "<group>"; };
+		CC3F18361E7A2C8600C711AD /* NSDictionary+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+WJAdd.h"; sourceTree = "<group>"; };
+		CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+WJAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 				8B2E82401E781FF7008AECAB /* NSData+WJAdd.m */,
 				CC342C3A1E7964B9004EAA2F /* NSArray+WJAdd.h */,
 				CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */,
+				CC3F18361E7A2C8600C711AD /* NSDictionary+WJAdd.h */,
+				CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */,
 				8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */,
 				8B2E823E1E781EFE008AECAB /* NSNumber+WJAdd.m in Sources */,
+				CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */,
 				8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */,
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
 				8B2E82411E781FF7008AECAB /* NSData+WJAdd.m in Sources */,
