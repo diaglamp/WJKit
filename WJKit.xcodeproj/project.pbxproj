@@ -11,7 +11,6 @@
 		8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E823A1E77F60F008AECAB /* NSString+WJAdd.m */; };
 		8B2E823E1E781EFE008AECAB /* NSNumber+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E823D1E781EFE008AECAB /* NSNumber+WJAdd.m */; };
 		8B2E82411E781FF7008AECAB /* NSData+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E82401E781FF7008AECAB /* NSData+WJAdd.m */; };
-		8B3D4FB01E702A39004EFDB9 /* custom_navbar_return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */; };
 		8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */; };
 		8B7A21FF1E6D52040008727C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A21FE1E6D52040008727C /* main.m */; };
 		8B7A22021E6D52040008727C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22011E6D52040008727C /* AppDelegate.m */; };
@@ -98,7 +97,6 @@
 		8B2E823D1E781EFE008AECAB /* NSNumber+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+WJAdd.m"; sourceTree = "<group>"; };
 		8B2E823F1E781FF7008AECAB /* NSData+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+WJAdd.h"; sourceTree = "<group>"; };
 		8B2E82401E781FF7008AECAB /* NSData+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+WJAdd.m"; sourceTree = "<group>"; };
-		8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom_navbar_return@2x.png"; sourceTree = "<group>"; };
 		8B6E61DC1E6D97BA001DAA39 /* UIViewController+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WJAdd.h"; sourceTree = "<group>"; };
 		8B6E61DD1E6D97BA001DAA39 /* UIViewController+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WJAdd.m"; sourceTree = "<group>"; };
 		8B7A21FA1E6D52040008727C /* WJKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,11 +223,6 @@
 				8B7A22011E6D52040008727C /* AppDelegate.m */,
 				8B7A22031E6D52040008727C /* ViewController.h */,
 				8B7A22041E6D52040008727C /* ViewController.m */,
-				8B7A22061E6D52040008727C /* Main.storyboard */,
-				8B7A22091E6D52040008727C /* Assets.xcassets */,
-				8B7A220B1E6D52040008727C /* LaunchScreen.storyboard */,
-				8B7A220E1E6D52040008727C /* Info.plist */,
-				8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */,
 				CCEAC1391E7BDDA3008E456B /* JSONFiles */,
 				CCEAC0E31E7BDD97008E456B /* Resources */,
 				8B7A21FD1E6D52040008727C /* Supporting Files */,
@@ -240,6 +233,10 @@
 		8B7A21FD1E6D52040008727C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8B7A220B1E6D52040008727C /* LaunchScreen.storyboard */,
+				8B7A22061E6D52040008727C /* Main.storyboard */,
+				8B7A22091E6D52040008727C /* Assets.xcassets */,
+				8B7A220E1E6D52040008727C /* Info.plist */,
 				8B7A21FE1E6D52040008727C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -532,7 +529,6 @@
 				CCEAC11C1E7BDD97008E456B /* EmoticonQQ.bundle in Resources */,
 				CCEAC12A1E7BDD97008E456B /* Twitter@3x.jpg in Resources */,
 				CCEAC1111E7BDD97008E456B /* dribbble512_imageio.png in Resources */,
-				8B3D4FB01E702A39004EFDB9 /* custom_navbar_return@2x.png in Resources */,
 				CCEAC1471E7BDDC8008E456B /* twitter_1.json in Resources */,
 				CCEAC1251E7BDD97008E456B /* niconiconi@2x.gif in Resources */,
 				CCEAC1281E7BDD97008E456B /* ResourceTwitter.bundle in Resources */,
