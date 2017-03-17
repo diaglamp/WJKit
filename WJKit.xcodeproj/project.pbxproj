@@ -148,8 +148,7 @@
 				8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */,
 				8B7A21FD1E6D52040008727C /* Supporting Files */,
 			);
-			name = WJKitDemo;
-			path = WJKit;
+			path = WJKitDemo;
 			sourceTree = "<group>";
 		};
 		8B7A21FD1E6D52040008727C /* Supporting Files */ = {
@@ -165,8 +164,7 @@
 			children = (
 				8B7A22341E6D530D0008727C /* Base */,
 			);
-			name = WJKit;
-			path = WJKit/WJKit;
+			path = WJKit;
 			sourceTree = "<group>";
 		};
 		8B7A22341E6D530D0008727C /* Base */ = {
