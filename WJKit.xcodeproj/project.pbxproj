@@ -19,8 +19,6 @@
 		8B7A22081E6D52040008727C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A22061E6D52040008727C /* Main.storyboard */; };
 		8B7A220A1E6D52040008727C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A22091E6D52040008727C /* Assets.xcassets */; };
 		8B7A220D1E6D52040008727C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A220B1E6D52040008727C /* LaunchScreen.storyboard */; };
-		8B7A22181E6D52040008727C /* WJKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22171E6D52040008727C /* WJKitTests.m */; };
-		8B7A22231E6D52050008727C /* WJKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22221E6D52050008727C /* WJKitUITests.m */; };
 		8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */; };
 		CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC342C3B1E7964B9004EAA2F /* NSArray+WJAdd.m */; };
 		CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */; };
@@ -28,6 +26,7 @@
 		CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3F183D1E7A692600C711AD /* libz.tbd */; };
 		CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */; };
 		CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */; };
+		CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,11 +70,7 @@
 		8B7A220C1E6D52040008727C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B7A220E1E6D52040008727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B7A22131E6D52040008727C /* WJKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WJKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B7A22171E6D52040008727C /* WJKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJKitTests.m; sourceTree = "<group>"; };
-		8B7A22191E6D52050008727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B7A221E1E6D52050008727C /* WJKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WJKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B7A22221E6D52050008727C /* WJKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJKitUITests.m; sourceTree = "<group>"; };
-		8B7A22241E6D52050008727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B7A22381E6D53BC0008727C /* NSObject+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WJAdd.h"; sourceTree = "<group>"; };
 		8B7A22391E6D53BC0008727C /* NSObject+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WJAdd.m"; sourceTree = "<group>"; };
 		CC342C3A1E7964B9004EAA2F /* NSArray+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WJAdd.h"; sourceTree = "<group>"; };
@@ -89,6 +84,8 @@
 		CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WJAdd.m"; sourceTree = "<group>"; };
 		CC3F18421E7AB46D00C711AD /* UIColor+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WJAdd.h"; sourceTree = "<group>"; };
 		CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WJAdd.m"; sourceTree = "<group>"; };
+		CCEAC08A1E7BCF10008E456B /* UIImage+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WJAdd.h"; sourceTree = "<group>"; };
+		CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WJAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +117,8 @@
 		8B7A21F11E6D52040008727C = {
 			isa = PBXGroup;
 			children = (
-				8B7A21FC1E6D52040008727C /* WJKit */,
-				8B7A22161E6D52040008727C /* WJKitTests */,
-				8B7A22211E6D52050008727C /* WJKitUITests */,
+				8B7A22331E6D530D0008727C /* WJKit */,
+				8B7A21FC1E6D52040008727C /* WJKitDemo */,
 				8B7A21FB1E6D52040008727C /* Products */,
 				CC3F183C1E7A692600C711AD /* Frameworks */,
 			);
@@ -138,10 +134,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8B7A21FC1E6D52040008727C /* WJKit */ = {
+		8B7A21FC1E6D52040008727C /* WJKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				8B7A22331E6D530D0008727C /* WJKit */,
 				8B7A22001E6D52040008727C /* AppDelegate.h */,
 				8B7A22011E6D52040008727C /* AppDelegate.m */,
 				8B7A22031E6D52040008727C /* ViewController.h */,
@@ -153,6 +148,7 @@
 				8B3D4FAF1E702A39004EFDB9 /* custom_navbar_return@2x.png */,
 				8B7A21FD1E6D52040008727C /* Supporting Files */,
 			);
+			name = WJKitDemo;
 			path = WJKit;
 			sourceTree = "<group>";
 		};
@@ -164,30 +160,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8B7A22161E6D52040008727C /* WJKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				8B7A22171E6D52040008727C /* WJKitTests.m */,
-				8B7A22191E6D52050008727C /* Info.plist */,
-			);
-			path = WJKitTests;
-			sourceTree = "<group>";
-		};
-		8B7A22211E6D52050008727C /* WJKitUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8B7A22221E6D52050008727C /* WJKitUITests.m */,
-				8B7A22241E6D52050008727C /* Info.plist */,
-			);
-			path = WJKitUITests;
-			sourceTree = "<group>";
-		};
 		8B7A22331E6D530D0008727C /* WJKit */ = {
 			isa = PBXGroup;
 			children = (
 				8B7A22341E6D530D0008727C /* Base */,
 			);
-			path = WJKit;
+			name = WJKit;
+			path = WJKit/WJKit;
 			sourceTree = "<group>";
 		};
 		8B7A22341E6D530D0008727C /* Base */ = {
@@ -240,6 +219,8 @@
 				CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */,
 				CC3F18421E7AB46D00C711AD /* UIColor+WJAdd.h */,
 				CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */,
+				CCEAC08A1E7BCF10008E456B /* UIImage+WJAdd.h */,
+				CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -397,6 +378,7 @@
 				8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */,
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
 				8B2E82411E781FF7008AECAB /* NSData+WJAdd.m in Sources */,
+				CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */,
 				8B7A22021E6D52040008727C /* AppDelegate.m in Sources */,
 				CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */,
 				CC3F183B1E7A345300C711AD /* NSDate+WJAdd.m in Sources */,
@@ -410,7 +392,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B7A22181E6D52040008727C /* WJKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +399,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B7A22231E6D52050008727C /* WJKitUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
