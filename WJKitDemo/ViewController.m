@@ -7,27 +7,31 @@
 //
 
 #import "ViewController.h"
-#import "NSObject+WJAdd.h"
+#import "UIImage+WJAdd.h"
+#import <ImageIO/ImageIO.h>
 
 @interface ViewController ()
-@property (nonatomic, copy) NSString *foo;
+@property (nonatomic, strong) UIImageView *imageView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",[self.view className]);
-    _foo = @"asbsd";
-    [self addObserver:self forKeyPath:@"foo" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    NSString *resPath = [[NSBundle mainBundle] resourcePath];
+    NSString *bundlePath = [resPath stringByAppendingPathComponent:@"EmoticonQQ.bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    NSString *path = [bundle pathForResource:@"001@2x.gif" ofType:nil];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    UIImage *image = [UIImage imageWithSmallGIFData:data scale:2.0];
+    _imageView = [[UIImageView alloc]initWithImage:image];
+    _imageView.frame = CGRectMake(100, 100, 0, 0);
+    [_imageView sizeToFit];
+    [self.view addSubview:_imageView];
+    
+    CFArrayRef mySourceTypes = CGImageSourceCopyTypeIdentifiers();
+    CFShow(mySourceTypes);
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    NSLog(@"%@",_foo);
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.foo = @"foo";
-}
 
 @end
