@@ -29,6 +29,10 @@
 #endif
 
 
+#ifndef WJ_SWAP // swap two value
+#define WJ_SWAP(_a_, _b_)  do { __typeof__(_a_) _tmp_ = (_a_); (_a_) = (_b_); (_b_) = _tmp_; } while (0)
+#endif
+
 //大于等于 9.0
 #define IOS9_OR_LATER	([[[UIDevice currentDevice] systemVersion] compare:@"9.0" options:NSNumericSearch] != NSOrderedAscending)
 //大于等于 8.0
