@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIImage+WJAdd.h"
 #import <ImageIO/ImageIO.h>
+#import "WJKitMacro.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UIImageView *imageView;
@@ -31,6 +32,9 @@
     
     CFArrayRef mySourceTypes = CGImageSourceCopyTypeIdentifiers();
     CFShow(mySourceTypes);
+    
+    NSDate *date = WJCompileTime();
+    NSLog(@"date = %@",date);
 }
 
 

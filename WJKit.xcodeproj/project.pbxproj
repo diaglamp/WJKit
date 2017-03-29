@@ -25,6 +25,7 @@
 		CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3F183D1E7A692600C711AD /* libz.tbd */; };
 		CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */; };
 		CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */; };
+		CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */; };
 		CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */; };
 		CCEAC10F1E7BDD97008E456B /* dribbble128_imageio.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEAC0E51E7BDD97008E456B /* dribbble128_imageio.png */; };
 		CCEAC1101E7BDD97008E456B /* dribbble256_imageio.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEAC0E61E7BDD97008E456B /* dribbble256_imageio.png */; };
@@ -124,6 +125,8 @@
 		CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WJAdd.m"; sourceTree = "<group>"; };
 		CC3F18421E7AB46D00C711AD /* UIColor+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WJAdd.h"; sourceTree = "<group>"; };
 		CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WJAdd.m"; sourceTree = "<group>"; };
+		CCC7FB1F1E8B588A00B1152B /* WJCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCGUtilities.h; sourceTree = "<group>"; };
+		CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCGUtilities.m; sourceTree = "<group>"; };
 		CCEAC08A1E7BCF10008E456B /* UIImage+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WJAdd.h"; sourceTree = "<group>"; };
 		CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WJAdd.m"; sourceTree = "<group>"; };
 		CCEAC0E51E7BDD97008E456B /* dribbble128_imageio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dribbble128_imageio.png; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 		8B7A22361E6D530D0008727C /* Quartz */ = {
 			isa = PBXGroup;
 			children = (
+				CCC7FB1F1E8B588A00B1152B /* WJCGUtilities.h */,
+				CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */,
 			);
 			path = Quartz;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */,
+				CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */,
 				8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */,
 				8B2E823E1E781EFE008AECAB /* NSNumber+WJAdd.m in Sources */,
 				CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */,
