@@ -25,6 +25,7 @@
 		CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3F183D1E7A692600C711AD /* libz.tbd */; };
 		CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */; };
 		CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */; };
+		CC4EFF631E8FB07500BD9E30 /* two_cat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */; };
 		CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */; };
 		CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */; };
 		CCEAC10F1E7BDD97008E456B /* dribbble128_imageio.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEAC0E51E7BDD97008E456B /* dribbble128_imageio.png */; };
@@ -125,6 +126,7 @@
 		CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WJAdd.m"; sourceTree = "<group>"; };
 		CC3F18421E7AB46D00C711AD /* UIColor+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WJAdd.h"; sourceTree = "<group>"; };
 		CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WJAdd.m"; sourceTree = "<group>"; };
+		CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "two_cat@3x.png"; sourceTree = "<group>"; };
 		CCC7FB1F1E8B588A00B1152B /* WJCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCGUtilities.h; sourceTree = "<group>"; };
 		CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCGUtilities.m; sourceTree = "<group>"; };
 		CCEAC08A1E7BCF10008E456B /* UIImage+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WJAdd.h"; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				CCEAC0F71E7BDD97008E456B /* mew_baseline.png */,
 				CCEAC0F81E7BDD97008E456B /* mew_interlaced.gif */,
 				CCEAC0F91E7BDD97008E456B /* mew_interlaced.png */,
+				CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */,
 				CCEAC0FA1E7BDD97008E456B /* mew_progressive.jpg */,
 				CCEAC0FB1E7BDD97008E456B /* niconiconi@2x.gif */,
 				CCEAC0FC1E7BDD97008E456B /* nyancat@2x.webp */,
@@ -497,6 +500,7 @@
 				CCEAC1131E7BDD97008E456B /* ermilio.gif in Resources */,
 				CCEAC11B1E7BDD97008E456B /* cube@2x.png in Resources */,
 				CCEAC1211E7BDD97008E456B /* mew_baseline.png in Resources */,
+				CC4EFF631E8FB07500BD9E30 /* two_cat@3x.png in Resources */,
 				CCEAC1101E7BDD97008E456B /* dribbble256_imageio.png in Resources */,
 				CCEAC11F1E7BDD97008E456B /* mew_baseline.gif in Resources */,
 				CCEAC1271E7BDD97008E456B /* pia@2x.png in Resources */,
