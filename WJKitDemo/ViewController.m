@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIImage+WJAdd.h"
+#import "UIColor+WJAdd.h"
 #import <ImageIO/ImageIO.h>
 #import "WJKitMacro.h"
 
@@ -21,26 +22,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self roundCornerTest];
+    [self tintColorTest];
     
 }
 
+- (void)grayscaleTest {
+    UIImage *image = [[UIImage imageNamed:@"two_cat"] imageByBlurDark];
+    [self imageTestBase:image];
+}
+
+- (void)tintColorTest {
+    
+    _originView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"two_cat"]];
+    [_originView sizeToFit];
+    _originView.center = CGPointMake(self.view.frame.size.width / 2, 100 + _originView.frame.size.height / 2);
+    [self.view addSubview:_originView];
+    UIImage *image = [[UIImage imageNamed:@"two_cat"] imageByTintColor:[UIColor colorWithRGB:0x999999 alpha:0.5]];
+    [self imageTestBase:image];
+}
+
+- (void)rotateTest {
+    UIImage *image = [[UIImage imageNamed:@"two_cat"] imageByRotate:2 fitSize:YES];
+    [self imageTestBase:image];
+}
+
 - (void)roundCornerTest {
-    UIImage *image = [[UIImage imageNamed:@"two_cat"] imageByRoundCornerRadius:0
+    UIImage *image = [[UIImage imageNamed:@"two_cat"] imageByRoundCornerRadius:50
                                                                         corners:UIRectCornerAllCorners
-                                                                    borderWidth:10
+                                                                    borderWidth:5
                                                                     borderColor:[UIColor blueColor]
                                                                  borderLineJoin:kCGLineJoinMiter];
-    _imageView = [[UIImageView alloc]initWithImage:image];
-    _imageView.frame = CGRectMake(100, 100, 0, 0);
-    [_imageView sizeToFit];
-    [self.view addSubview:_imageView];
-    
-    UIImage *imageO = [UIImage imageNamed:@"two_cat"];
-    _originView = [[UIImageView alloc]initWithImage:imageO];
-    _originView.frame = CGRectMake(100, 300, 0, 0);
-    [_originView sizeToFit];
-    [self.view addSubview:_originView];
+    [self imageTestBase:image];
     
 }
 
@@ -54,6 +66,13 @@
     _imageView = [[UIImageView alloc]initWithImage:image];
     _imageView.frame = CGRectMake(100, 100, 0, 0);
     [_imageView sizeToFit];
+    [self.view addSubview:_imageView];
+}
+
+- (void)imageTestBase:(UIImage *)image {
+    _imageView = [[UIImageView alloc]initWithImage:image];
+    [_imageView sizeToFit];
+    _imageView.center = CGPointMake(self.view.frame.size.width / 2, 100 + _imageView.frame.size.height / 2);
     [self.view addSubview:_imageView];
 }
 

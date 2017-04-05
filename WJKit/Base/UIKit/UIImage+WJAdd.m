@@ -314,28 +314,28 @@ static NSTimeInterval _wj_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     CGContextTranslateCTM(context, 0, -rect.size.height);
     
     CGFloat minSize = MIN(self.size.width, self.size.height);
-    if (borderWidth < minSize / 2) {
-        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, borderWidth, borderWidth) byRoundingCorners:corners cornerRadii:CGSizeMake(radius, borderWidth)];
+    borderWidth = MIN(borderWidth, minSize / 2);
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, borderWidth, borderWidth) byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
+    [path closePath];
+    
+    CGContextSaveGState(context);
+    [path addClip];
+    CGContextDrawImage(context, rect, self.CGImage);
+    CGContextRestoreGState(context);
+    
+    if (borderColor) {
+        CGFloat strokeInset = (floor(borderWidth * self.scale) * 0.5) / self.scale;
+        CGRect strokeRect = CGRectInset(rect, strokeInset, strokeInset);
+        CGFloat strokeRadius = radius + borderWidth / 2;
+        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:strokeRect byRoundingCorners:corners cornerRadii:CGSizeMake(strokeRadius, strokeRadius)];
         [path closePath];
         
-        CGContextSaveGState(context);
-        [path addClip];
-        CGContextDrawImage(context, rect, self.CGImage);
-        CGContextRestoreGState(context);
+        path.lineWidth = borderWidth;
+        path.lineJoinStyle = borderLineJoin;
+        [borderColor setStroke];
+        [path stroke];
     }
-    
-//    if (borderColor && borderWidth < minSize / 2 && borderWidth > 0) {
-//        CGFloat strokeInset = (floor(borderWidth * self.scale) + 0.5) / self.scale;
-//        CGRect strokeRect = CGRectInset(rect, strokeInset, strokeInset);
-//        CGFloat strokeRadius = radius > self.scale / 2 ? radius - self.scale / 2 : 0;
-//        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:strokeRect byRoundingCorners:corners cornerRadii:CGSizeMake(strokeRadius, borderWidth)];
-//        [path closePath];
-//        
-//        path.lineWidth = borderWidth;
-//        path.lineJoinStyle = borderLineJoin;
-//        [borderColor setStroke];
-//        [path stroke];
-//    }
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -374,7 +374,7 @@ static NSTimeInterval _wj_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return img;
 }
 
-- (UIImage *)_yy_flipHorizontal:(BOOL)horizontal vertical:(BOOL)vertical {
+- (UIImage *)_wj_flipHorizontal:(BOOL)horizontal vertical:(BOOL)vertical {
     if (!self.CGImage) return nil;
     size_t width = (size_t)CGImageGetWidth(self.CGImage);
     size_t height = (size_t)CGImageGetHeight(self.CGImage);
@@ -414,15 +414,15 @@ static NSTimeInterval _wj_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
 }
 
 - (UIImage *)imageByRotate180 {
-    return [self _yy_flipHorizontal:YES vertical:YES];
+    return [self _wj_flipHorizontal:YES vertical:YES];
 }
 
 - (UIImage *)imageByFlipVertical {
-    return [self _yy_flipHorizontal:NO vertical:YES];
+    return [self _wj_flipHorizontal:NO vertical:YES];
 }
 
 - (UIImage *)imageByFlipHorizontal {
-    return [self _yy_flipHorizontal:YES vertical:NO];
+    return [self _wj_flipHorizontal:YES vertical:NO];
 }
 
 #pragma mark - Image Effect
@@ -485,15 +485,15 @@ static NSTimeInterval _wj_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
                     saturation:(CGFloat)saturation
                      maskImage:(UIImage *)maskImage {
     if (self.size.width < 1 || self.size.height < 1) {
-        NSLog(@"UIImage+YYAdd error: invalid size: (%.2f x %.2f). Both dimensions must be >= 1: %@", self.size.width, self.size.height, self);
+        NSLog(@"UIImage+WJAdd error: invalid size: (%.2f x %.2f). Both dimensions must be >= 1: %@", self.size.width, self.size.height, self);
         return nil;
     }
     if (!self.CGImage) {
-        NSLog(@"UIImage+YYAdd error: inputImage must be backed by a CGImage: %@", self);
+        NSLog(@"UIImage+WJAdd error: inputImage must be backed by a CGImage: %@", self);
         return nil;
     }
     if (maskImage && !maskImage.CGImage) {
-        NSLog(@"UIImage+YYAdd error: effectMaskImage must be backed by a CGImage: %@", maskImage);
+        NSLog(@"UIImage+WJAdd error: effectMaskImage must be backed by a CGImage: %@", maskImage);
         return nil;
     }
     
@@ -529,12 +529,12 @@ static NSTimeInterval _wj_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
         vImage_Error err;
         err = vImageBuffer_InitWithCGImage(&effect, &format, NULL, imageRef, kvImagePrintDiagnosticsToConsole);
         if (err != kvImageNoError) {
-            NSLog(@"UIImage+YYAdd error: vImageBuffer_InitWithCGImage returned error code %zi for inputImage: %@", err, self);
+            NSLog(@"UIImage+WJAdd error: vImageBuffer_InitWithCGImage returned error code %zi for inputImage: %@", err, self);
             return nil;
         }
         err = vImageBuffer_Init(&scratch, effect.height, effect.width, format.bitsPerPixel, kvImageNoFlags);
         if (err != kvImageNoError) {
-            NSLog(@"UIImage+YYAdd error: vImageBuffer_Init returned error code %zi for inputImage: %@", err, self);
+            NSLog(@"UIImage+WJAdd error: vImageBuffer_Init returned error code %zi for inputImage: %@", err, self);
             return nil;
         }
     } else {
