@@ -26,6 +26,7 @@
 		CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */; };
 		CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */; };
 		CC4EFF631E8FB07500BD9E30 /* two_cat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */; };
+		CC59CCB71E95DC0800D440F6 /* UIScrollView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */; };
 		CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */; };
 		CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */; };
 		CCEAC10F1E7BDD97008E456B /* dribbble128_imageio.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEAC0E51E7BDD97008E456B /* dribbble128_imageio.png */; };
@@ -127,6 +128,8 @@
 		CC3F18421E7AB46D00C711AD /* UIColor+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WJAdd.h"; sourceTree = "<group>"; };
 		CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WJAdd.m"; sourceTree = "<group>"; };
 		CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "two_cat@3x.png"; sourceTree = "<group>"; };
+		CC59CCB51E95DC0800D440F6 /* UIScrollView+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+WJAdd.h"; sourceTree = "<group>"; };
+		CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+WJAdd.m"; sourceTree = "<group>"; };
 		CCC7FB1F1E8B588A00B1152B /* WJCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCGUtilities.h; sourceTree = "<group>"; };
 		CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCGUtilities.m; sourceTree = "<group>"; };
 		CCEAC08A1E7BCF10008E456B /* UIImage+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WJAdd.h"; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */,
 				CCEAC08A1E7BCF10008E456B /* UIImage+WJAdd.h */,
 				CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */,
+				CC59CCB51E95DC0800D440F6 /* UIScrollView+WJAdd.h */,
+				CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -577,6 +582,7 @@
 				CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */,
 				8B7A22021E6D52040008727C /* AppDelegate.m in Sources */,
 				CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */,
+				CC59CCB71E95DC0800D440F6 /* UIScrollView+WJAdd.m in Sources */,
 				CC3F183B1E7A345300C711AD /* NSDate+WJAdd.m in Sources */,
 				8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */,
 				CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */,
