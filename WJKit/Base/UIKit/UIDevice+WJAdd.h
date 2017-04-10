@@ -8,6 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+#ifndef kSystemVersion
+#define kSystemVersion [UIDevice systemVersion]
+#endif
+
+#ifndef kiOS6Later
+#define kiOS6Later (kSystemVersion >= 6)
+#endif
+
+#ifndef kiOS7Later
+#define kiOS7Later (kSystemVersion >= 7)
+#endif
+
+#ifndef kiOS8Later
+#define kiOS8Later (kSystemVersion >= 8)
+#endif
+
+#ifndef kiOS9Later
+#define kiOS9Later (kSystemVersion >= 9)
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -102,6 +122,60 @@ typedef NS_OPTIONS(NSUInteger, YYNetworkTrafficType) {
  @return bytes counter.
  */
 - (uint64_t)getNetworkTrafficBytes:(YYNetworkTrafficType)types;
+
+#pragma mark - Disk Space
+///=============================================================================
+/// @name Disk Space
+///=============================================================================
+
+/// Total disk space in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t diskSpace;
+
+/// Free disk space in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t diskSpaceFree;
+
+/// Used disk space in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t diskSpaceUsed;
+
+#pragma mark - Memory Information
+///=============================================================================
+/// @name Memory Information
+///=============================================================================
+
+/// Total physical memory in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t memoryTotal;
+
+/// Used (active + inactive + wired) memory in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t memoryUsed;
+
+/// Free memory in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t memoryFree;
+
+/// Acvite memory in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t memoryActive;
+
+/// Inactive memory in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t memoryInactive;
+
+/// Wired memory in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t memoryWired;
+
+/// Purgeable memory in byte. (-1 when error occurs)
+@property (nonatomic, readonly) int64_t memoryPurgeable;
+
+#pragma mark - CPU Information
+///=============================================================================
+/// @name CPU Information
+///=============================================================================
+
+/// Avaliable CPU processor count.
+@property (nonatomic, readonly) NSUInteger cpuCount;
+
+/// Current CPU usage, 1.0 means 100%. (-1 when error occurs)
+@property (nonatomic, readonly) float cpuUsage;
+
+/// Current CPU usage per processor (array of NSNumber), 1.0 means 100%. (nil when error occurs)
+@property (nullable, nonatomic, readonly) NSArray<NSNumber *> *cpuUsagePerProcessor;
 
 @end
 
