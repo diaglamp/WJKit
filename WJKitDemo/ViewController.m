@@ -11,6 +11,7 @@
 #import "UIColor+WJAdd.h"
 #import <ImageIO/ImageIO.h>
 #import "WJKitMacro.h"
+#import "UIApplication+WJAdd.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UIImageView *imageView;
@@ -22,8 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self tintColorTest];
+    [self netWorkRequestTest];
     
+}
+
+- (void)netWorkRequestTest {
+    [[UIApplication sharedApplication] incrementNetworkActivityCount];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] decrementNetworkActivityCount];
+    });
 }
 
 - (void)grayscaleTest {

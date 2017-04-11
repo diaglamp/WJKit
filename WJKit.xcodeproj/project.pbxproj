@@ -27,6 +27,7 @@
 		CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */; };
 		CC4EFF631E8FB07500BD9E30 /* two_cat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */; };
 		CC59CCB71E95DC0800D440F6 /* UIScrollView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */; };
+		CC602ED01E9CFC63000615E4 /* UIApplication+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */; };
 		CC98B8241E972F6A0034FD81 /* UIDevice+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */; };
 		CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */; };
 		CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEAC08B1E7BCF10008E456B /* UIImage+WJAdd.m */; };
@@ -131,6 +132,8 @@
 		CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "two_cat@3x.png"; sourceTree = "<group>"; };
 		CC59CCB51E95DC0800D440F6 /* UIScrollView+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+WJAdd.h"; sourceTree = "<group>"; };
 		CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+WJAdd.m"; sourceTree = "<group>"; };
+		CC602ECE1E9CFC63000615E4 /* UIApplication+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+WJAdd.h"; sourceTree = "<group>"; };
+		CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+WJAdd.m"; sourceTree = "<group>"; };
 		CC98B8221E972F6A0034FD81 /* UIDevice+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WJAdd.h"; sourceTree = "<group>"; };
 		CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WJAdd.m"; sourceTree = "<group>"; };
 		CCC7FB1F1E8B588A00B1152B /* WJCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCGUtilities.h; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */,
 				CC98B8221E972F6A0034FD81 /* UIDevice+WJAdd.h */,
 				CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */,
+				CC602ECE1E9CFC63000615E4 /* UIApplication+WJAdd.h */,
+				CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */,
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
 				8B2E82411E781FF7008AECAB /* NSData+WJAdd.m in Sources */,
+				CC602ED01E9CFC63000615E4 /* UIApplication+WJAdd.m in Sources */,
 				CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */,
 				8B7A22021E6D52040008727C /* AppDelegate.m in Sources */,
 				CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */,

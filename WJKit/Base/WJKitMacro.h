@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <sys/time.h>
+#import <pthread.h>
 
 #ifndef WJKitMacro_h
 #define WJKitMacro_h
@@ -220,6 +221,36 @@ static inline dispatch_time_t dispatch_walltime_date(NSDate *date) {
     milestone = dispatch_walltime(&time, 0);
     return milestone;
 }
+
+/**
+ Whether in main queue/thread.
+ */
+static inline bool dispatch_is_main_queue() {
+    return pthread_main_np() != 0;
+}
+
+/**
+ Submits a block for asynchronous execution on a main queue and returns immediately.
+ */
+static inline void dispatch_async_on_main_queue(void (^block)()) {
+    if (pthread_main_np()) {
+        block();
+    } else {
+        dispatch_async(dispatch_get_main_queue(), block);
+    }
+}
+
+/**
+ Submits a block for execution on a main queue and waits until the block completes.
+ */
+static inline void dispatch_sync_on_main_queue(void (^block)()) {
+    if (pthread_main_np()) {
+        block();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), block);
+    }
+}
+
 
 WJ_EXTERN_C_END
 #endif /* WJKitMacro_h */
