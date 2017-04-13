@@ -17,12 +17,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// App’s bundle contains the app and all of its resources. Cannot write
 @property (nonatomic, readonly) NSString *applicationPath;
+
 /// User data you want to expose to the user, backed up to iCloud by default
 @property (nonatomic, readonly) NSString *documentsPath;
+
 /// This is the top-level directory for any files that are not user data files.
 @property (nonatomic, readonly) NSString *libraryPath;
+
 /// The system may delete the Caches/ directory to free up disk space
 @property (nonatomic, readonly) NSString *cachesPath;
+
 /// The system will periodically purge these files when your app is not running
 @property (nonatomic, readonly) NSString *tmpPath;
 
