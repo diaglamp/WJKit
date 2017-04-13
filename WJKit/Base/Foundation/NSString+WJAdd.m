@@ -136,6 +136,31 @@ WJSYNTH_DUMMY_CLASS(NSString_WJAdd)
     return [self stringByTrimmingCharactersInSet:set];
 }
 
+- (NSString *)stringByAppendingNameScale:(CGFloat)scale {
+    if (fabs(scale - 1) <= __FLT_EPSILON__ || self.length == 0 || [self hasSuffix:@"/"]) return self.copy;
+    return [self stringByAppendingFormat:@"@%@x", @(scale)];
+}
+
+- (NSString *)stringByAppendingPathScale:(CGFloat)scale {
+    if (fabs(scale - 1) <= __FLT_EPSILON__ || self.length == 0 || [self hasSuffix:@"/"]) return self.copy;
+    NSString *ext = self.pathExtension;
+    NSRange extRange = NSMakeRange(self.length - ext.length, 0);
+    if (ext.length > 0) extRange.location -= 1;
+    NSString *scaleStr = [NSString stringWithFormat:@"@%@x", @(scale)];
+    return [self stringByReplacingCharactersInRange:extRange withString:scaleStr];
+}
+
+- (CGFloat)pathScale {
+    if (self.length == 0 || [self hasSuffix:@"/"]) return 1;
+    NSString *name = self.stringByDeletingPathExtension;
+    __block CGFloat scale = 1;
+    [name enumerateRegexMatches:@"@[0-9]+\\.?[0-9]*x$" options:NSRegularExpressionAnchorsMatchLines usingBlock: ^(NSString *match, NSRange matchRange, BOOL *stop) {
+        scale = [match substringWithRange:NSMakeRange(1, match.length - 2)].doubleValue;
+    }];
+    return scale;
+}
+
+
 - (NSNumber *)numberValue {
     return [NSNumber numberWithString:self];
 }

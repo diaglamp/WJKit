@@ -26,6 +26,10 @@
 		CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18401E7A7EB800C711AD /* UIView+WJAdd.m */; };
 		CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */; };
 		CC4EFF631E8FB07500BD9E30 /* two_cat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */; };
+		CC525C281E9F9D85008CD9FB /* WJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CC525C271E9F9D85008CD9FB /* WJImage.m */; };
+		CC525C2E1E9FA0B6008CD9FB /* WJAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC525C2D1E9FA0B6008CD9FB /* WJAnimatedImageView.m */; };
+		CC525C311E9FAA1D008CD9FB /* NSBundle+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC525C301E9FAA1D008CD9FB /* NSBundle+WJAdd.m */; };
+		CC525C341E9FAEC7008CD9FB /* WJImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CC525C331E9FAEC7008CD9FB /* WJImageCoder.m */; };
 		CC59CCB71E95DC0800D440F6 /* UIScrollView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */; };
 		CC602ED01E9CFC63000615E4 /* UIApplication+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */; };
 		CC98B8241E972F6A0034FD81 /* UIDevice+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */; };
@@ -131,6 +135,14 @@
 		CC3F18421E7AB46D00C711AD /* UIColor+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WJAdd.h"; sourceTree = "<group>"; };
 		CC3F18431E7AB46D00C711AD /* UIColor+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WJAdd.m"; sourceTree = "<group>"; };
 		CC4EFF621E8FB07500BD9E30 /* two_cat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "two_cat@3x.png"; sourceTree = "<group>"; };
+		CC525C261E9F9D85008CD9FB /* WJImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJImage.h; sourceTree = "<group>"; };
+		CC525C271E9F9D85008CD9FB /* WJImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJImage.m; sourceTree = "<group>"; };
+		CC525C2C1E9FA0B6008CD9FB /* WJAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJAnimatedImageView.h; sourceTree = "<group>"; };
+		CC525C2D1E9FA0B6008CD9FB /* WJAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJAnimatedImageView.m; sourceTree = "<group>"; };
+		CC525C2F1E9FAA1D008CD9FB /* NSBundle+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+WJAdd.h"; sourceTree = "<group>"; };
+		CC525C301E9FAA1D008CD9FB /* NSBundle+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+WJAdd.m"; sourceTree = "<group>"; };
+		CC525C321E9FAEC7008CD9FB /* WJImageCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJImageCoder.h; sourceTree = "<group>"; };
+		CC525C331E9FAEC7008CD9FB /* WJImageCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJImageCoder.m; sourceTree = "<group>"; };
 		CC59CCB51E95DC0800D440F6 /* UIScrollView+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+WJAdd.h"; sourceTree = "<group>"; };
 		CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+WJAdd.m"; sourceTree = "<group>"; };
 		CC602ECE1E9CFC63000615E4 /* UIApplication+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+WJAdd.h"; sourceTree = "<group>"; };
@@ -263,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				8B7A22341E6D530D0008727C /* Base */,
+				CC525C251E9F9D55008CD9FB /* Image */,
 			);
 			path = WJKit;
 			sourceTree = "<group>";
@@ -297,6 +310,8 @@
 				CC3F18371E7A2C8600C711AD /* NSDictionary+WJAdd.m */,
 				CC3F18391E7A345300C711AD /* NSDate+WJAdd.h */,
 				CC3F183A1E7A345300C711AD /* NSDate+WJAdd.m */,
+				CC525C2F1E9FAA1D008CD9FB /* NSBundle+WJAdd.h */,
+				CC525C301E9FAA1D008CD9FB /* NSBundle+WJAdd.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -339,6 +354,19 @@
 				CC3F183D1E7A692600C711AD /* libz.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC525C251E9F9D55008CD9FB /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				CC525C261E9F9D85008CD9FB /* WJImage.h */,
+				CC525C271E9F9D85008CD9FB /* WJImage.m */,
+				CC525C2C1E9FA0B6008CD9FB /* WJAnimatedImageView.h */,
+				CC525C2D1E9FA0B6008CD9FB /* WJAnimatedImageView.m */,
+				CC525C321E9FAEC7008CD9FB /* WJImageCoder.h */,
+				CC525C331E9FAEC7008CD9FB /* WJImageCoder.m */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		CCEAC0E31E7BDD97008E456B /* Resources */ = {
@@ -587,15 +615,19 @@
 			files = (
 				8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */,
 				CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */,
+				CC525C311E9FAA1D008CD9FB /* NSBundle+WJAdd.m in Sources */,
 				8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */,
 				CCD58C3F1E9DC94600A5D56D /* UIFont+WJAdd.m in Sources */,
+				CC525C281E9F9D85008CD9FB /* WJImage.m in Sources */,
 				8B2E823E1E781EFE008AECAB /* NSNumber+WJAdd.m in Sources */,
 				CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */,
 				CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */,
 				8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */,
+				CC525C341E9FAEC7008CD9FB /* WJImageCoder.m in Sources */,
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
 				8B2E82411E781FF7008AECAB /* NSData+WJAdd.m in Sources */,
 				CC602ED01E9CFC63000615E4 /* UIApplication+WJAdd.m in Sources */,
+				CC525C2E1E9FA0B6008CD9FB /* WJAnimatedImageView.m in Sources */,
 				CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */,
 				8B7A22021E6D52040008727C /* AppDelegate.m in Sources */,
 				CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */,

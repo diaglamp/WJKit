@@ -187,6 +187,62 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)stringByTrim;
 
 /**
+ Add scale modifier to the file name (without path extension),
+ From @"name" to @"name@2x".
+ 
+ e.g.
+ <table>
+ <tr><th>Before     </th><th>After(scale:2)</th></tr>
+ <tr><td>"icon"     </td><td>"icon@2x"     </td></tr>
+ <tr><td>"icon "    </td><td>"icon @2x"    </td></tr>
+ <tr><td>"icon.top" </td><td>"icon.top@2x" </td></tr>
+ <tr><td>"/p/name"  </td><td>"/p/name@2x"  </td></tr>
+ <tr><td>"/path/"   </td><td>"/path/"      </td></tr>
+ </table>
+ 
+ @param scale Resource scale.
+ @return String by add scale modifier, or just return if it's not end with file name.
+ */
+- (NSString *)stringByAppendingNameScale:(CGFloat)scale;
+
+/**
+ Add scale modifier to the file path (with path extension),
+ From @"name.png" to @"name@2x.png".
+ 
+ e.g.
+ <table>
+ <tr><th>Before     </th><th>After(scale:2)</th></tr>
+ <tr><td>"icon.png" </td><td>"icon@2x.png" </td></tr>
+ <tr><td>"icon..png"</td><td>"icon.@2x.png"</td></tr>
+ <tr><td>"icon"     </td><td>"icon@2x"     </td></tr>
+ <tr><td>"icon "    </td><td>"icon @2x"    </td></tr>
+ <tr><td>"icon."    </td><td>"icon.@2x"    </td></tr>
+ <tr><td>"/p/name"  </td><td>"/p/name@2x"  </td></tr>
+ <tr><td>"/path/"   </td><td>"/path/"      </td></tr>
+ </table>
+ 
+ @param scale Resource scale.
+ @return String by add scale modifier, or just return if it's not end with file name.
+ */
+- (NSString *)stringByAppendingPathScale:(CGFloat)scale;
+
+/**
+ Return the path scale.
+ 
+ e.g.
+ <table>
+ <tr><th>Path            </th><th>Scale </th></tr>
+ <tr><td>"icon.png"      </td><td>1     </td></tr>
+ <tr><td>"icon@2x.png"   </td><td>2     </td></tr>
+ <tr><td>"icon@2.5x.png" </td><td>2.5   </td></tr>
+ <tr><td>"icon@2x"       </td><td>1     </td></tr>
+ <tr><td>"icon@2x..png"  </td><td>1     </td></tr>
+ <tr><td>"icon@2x.png/"  </td><td>1     </td></tr>
+ </table>
+ */
+- (CGFloat)pathScale;
+
+/**
  Try to parse this string and returns an `NSNumber`.
  @return Returns an `NSNumber` if parse succeed, or nil if an error occurs.
  */
