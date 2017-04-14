@@ -31,6 +31,7 @@
 		CC525C311E9FAA1D008CD9FB /* NSBundle+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC525C301E9FAA1D008CD9FB /* NSBundle+WJAdd.m */; };
 		CC525C341E9FAEC7008CD9FB /* WJImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CC525C331E9FAEC7008CD9FB /* WJImageCoder.m */; };
 		CC59CCB71E95DC0800D440F6 /* UIScrollView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */; };
+		CC600CA21EA064BA007B2FA9 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC600CA11EA064BA007B2FA9 /* WebP.framework */; };
 		CC602ED01E9CFC63000615E4 /* UIApplication+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */; };
 		CC98B8241E972F6A0034FD81 /* UIDevice+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */; };
 		CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */; };
@@ -145,6 +146,7 @@
 		CC525C331E9FAEC7008CD9FB /* WJImageCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJImageCoder.m; sourceTree = "<group>"; };
 		CC59CCB51E95DC0800D440F6 /* UIScrollView+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+WJAdd.h"; sourceTree = "<group>"; };
 		CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+WJAdd.m"; sourceTree = "<group>"; };
+		CC600CA11EA064BA007B2FA9 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		CC602ECE1E9CFC63000615E4 /* UIApplication+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+WJAdd.h"; sourceTree = "<group>"; };
 		CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+WJAdd.m"; sourceTree = "<group>"; };
 		CC98B8221E972F6A0034FD81 /* UIDevice+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WJAdd.h"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC600CA21EA064BA007B2FA9 /* WebP.framework in Frameworks */,
 				CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +279,7 @@
 			children = (
 				8B7A22341E6D530D0008727C /* Base */,
 				CC525C251E9F9D55008CD9FB /* Image */,
+				CC600CA01EA064BA007B2FA9 /* Vendor */,
 			);
 			path = WJKit;
 			sourceTree = "<group>";
@@ -367,6 +371,14 @@
 				CC525C331E9FAEC7008CD9FB /* WJImageCoder.m */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		CC600CA01EA064BA007B2FA9 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				CC600CA11EA064BA007B2FA9 /* WebP.framework */,
+			);
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		CCEAC0E31E7BDD97008E456B /* Resources */ = {
@@ -784,6 +796,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZYTPM95J44;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WJKit/Image",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/WJKit/Vendor",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/WJKitDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -797,6 +815,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZYTPM95J44;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WJKit/Image",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/WJKit/Vendor",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/WJKitDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
