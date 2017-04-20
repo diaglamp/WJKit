@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
      [view addSubView:imageView];
  
  */
-@interface WJImage : UIImage
+@interface WJImage : UIImage <WJAnimatedImage>
 
 + (nullable WJImage *)imageNamed:(NSString *)name; // no cache!
 + (nullable WJImage *)imageWithContentsOfFile:(NSString *)path;
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  If the image is created from data or file, then the value indicates the data type.
  */
-@property (nonatomic, readonly) YYImageType animatedImageType;
+@property (nonatomic, readonly) WJImageType animatedImageType;
 
 /**
  If the image is created from animated image data (multi-frame GIF/APNG/WebP),

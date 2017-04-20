@@ -13,75 +13,75 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Image file type.
  */
-typedef NS_ENUM(NSUInteger, YYImageType) {
-    YYImageTypeUnknown = 0, ///< unknown
-    YYImageTypeJPEG,        ///< jpeg, jpg
-    YYImageTypeJPEG2000,    ///< jp2
-    YYImageTypeTIFF,        ///< tiff, tif
-    YYImageTypeBMP,         ///< bmp
-    YYImageTypeICO,         ///< ico
-    YYImageTypeICNS,        ///< icns
-    YYImageTypeGIF,         ///< gif
-    YYImageTypePNG,         ///< png
-    YYImageTypeWebP,        ///< webp
-    YYImageTypeOther,       ///< other image format
+typedef NS_ENUM(NSUInteger, WJImageType) {
+    WJImageTypeUnknown = 0, ///< unknown
+    WJImageTypeJPEG,        ///< jpeg, jpg
+    WJImageTypeJPEG2000,    ///< jp2
+    WJImageTypeTIFF,        ///< tiff, tif
+    WJImageTypeBMP,         ///< bmp
+    WJImageTypeICO,         ///< ico
+    WJImageTypeICNS,        ///< icns
+    WJImageTypeGIF,         ///< gif
+    WJImageTypePNG,         ///< png
+    WJImageTypeWebP,        ///< webp
+    WJImageTypeOther,       ///< other image format
 };
 
 /**
  Dispose method specifies how the area used by the current frame is to be treated
  before rendering the next frame on the canvas.
  */
-typedef NS_ENUM(NSUInteger, YYImageDisposeMethod) {
+typedef NS_ENUM(NSUInteger, WJImageDisposeMethod) {
     
     /**
      No disposal is done on this frame before rendering the next; the contents
      of the canvas are left as is.
      */
-    YYImageDisposeNone = 0,
+    WJImageDisposeNone = 0,
     
     /**
      The frame's region of the canvas is to be cleared to fully transparent black
      before rendering the next frame.
      */
-    YYImageDisposeBackground,
+    WJImageDisposeBackground,
     
     /**
      The frame's region of the canvas is to be reverted to the previous contents
      before rendering the next frame.
      */
-    YYImageDisposePrevious,
+    WJImageDisposePrevious,
 };
 
 /**
  Blend operation specifies how transparent pixels of the current frame are
  blended with those of the previous canvas.
  */
-typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
+typedef NS_ENUM(NSUInteger, WJImageBlendOperation) {
     
     /**
      All color components of the frame, including alpha, overwrite the current
      contents of the frame's canvas region.
      */
-    YYImageBlendNone = 0,
+    WJImageBlendNone = 0,
     
     /**
      The frame should be composited onto the output buffer based on its alpha.
      */
-    YYImageBlendOver,
+    WJImageBlendOver,
 };
 
 /**
  An image frame object.
  */
-@interface YYImageFrame : NSObject <NSCopying>
+@interface WJImageFrame : NSObject <NSCopying>
 @property (nonatomic) NSUInteger index;    ///< Frame index (zero based)
 @property (nonatomic) NSUInteger width;    ///< Frame width
 @property (nonatomic) NSUInteger height;   ///< Frame height
 @property (nonatomic) NSUInteger offsetX;  ///< Frame origin.x in canvas (left-bottom based)
 @property (nonatomic) NSUInteger offsetY;  ///< Frame origin.y in canvas (left-bottom based)
 @property (nonatomic) NSTimeInterval duration;          ///< Frame duration in seconds
-@property (nonatomic) YYImageDisposeMethod dispose;     ///< Frame dispose method.
-@property (nonatomic) YYImageBlendOperation blend;      ///< Frame blend operation.
+@property (nonatomic) WJImageDisposeMethod dispose;     ///< Frame dispose method.
+@property (nonatomic) WJImageBlendOperation blend;      ///< Frame blend operation.
 @property (nullable, nonatomic, strong) UIImage *image; ///< The image.
 + (instancetype)frameWithImage:(UIImage *)image;
 @end
@@ -115,14 +115,14 @@ typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
         }
      }
      [decoder updateData:data final:YES];
-     UIImage image = [decoder frameAtIndex:0 decodeForDisplay:YES].image;
+     UIImage *image = [decoder frameAtIndex:0 decodeForDisplay:YES].image;
      // final display...
  
  */
 @interface WJImageDecoder : NSObject
 
 @property (nullable, nonatomic, readonly) NSData *data;    ///< Image data.
-@property (nonatomic, readonly) YYImageType type;          ///< Image data type.
+@property (nonatomic, readonly) WJImageType type;          ///< Image data type.
 @property (nonatomic, readonly) CGFloat scale;             ///< Image scale.
 @property (nonatomic, readonly) NSUInteger frameCount;     ///< Image frame count.
 @property (nonatomic, readonly) NSUInteger loopCount;      ///< Image loop count, 0 means infinite.
@@ -172,7 +172,7 @@ typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
  If NO, it will try to returns the original frame data without blend.
  @return A new frame with image, or nil if an error occurs.
  */
-- (nullable YYImageFrame *)frameAtIndex:(NSUInteger)index decodeForDisplay:(BOOL)decodeForDisplay;
+- (nullable WJImageFrame *)frameAtIndex:(NSUInteger)index decodeForDisplay:(BOOL)decodeForDisplay;
 
 /**
  Returns the frame duration from a specified index.
@@ -202,17 +202,17 @@ typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
 /**
  An image encoder to encode image to data.
  
- @discussion It supports encoding single frame image with the type defined in YYImageType.
+ @discussion It supports encoding single frame image with the type defined in WJImageType.
  It also supports encoding multi-frame image with GIF, APNG and WebP.
  
  Example:
  
-     WJImageEncoder *jpegEncoder = [[WJImageEncoder alloc] initWithType:YYImageTypeJPEG];
+     WJImageEncoder *jpegEncoder = [[WJImageEncoder alloc] initWithType:WJImageTypeJPEG];
      jpegEncoder.quality = 0.9;
      [jpegEncoder addImage:image duration:0];
      NSData *jpegData = [jpegEncoder encode];
      
-     WJImageEncoder *gifEncoder = [[WJImageEncoder alloc] initWithType:YYImageTypeGIF];
+     WJImageEncoder *gifEncoder = [[WJImageEncoder alloc] initWithType:WJImageTypeGIF];
      gifEncoder.loopCount = 5;
      [gifEncoder addImage:image0 duration:0.1];
      [gifEncoder addImage:image1 duration:0.15];
@@ -225,7 +225,7 @@ typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
  */
 @interface WJImageEncoder : NSObject
 
-@property (nonatomic, readonly) YYImageType type; ///< Image type.
+@property (nonatomic, readonly) WJImageType type; ///< Image type.
 @property (nonatomic) NSUInteger loopCount;       ///< Loop count, 0 means infinit, only available for GIF/APNG/WebP.
 @property (nonatomic) BOOL lossless;              ///< Lossless, only available for WebP.
 @property (nonatomic) CGFloat quality;            ///< Compress quality, 0.0~1.0, only available for JPG/JP2/WebP.
@@ -238,7 +238,7 @@ typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
  @param type Image type.
  @return A new encoder, or nil if an error occurs.
  */
-- (nullable instancetype)initWithType:(YYImageType)type NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithType:(WJImageType)type NS_DESIGNATED_INITIALIZER;
 
 /**
  Add an image to encoder.
@@ -281,7 +281,7 @@ typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
  @param quality Image quality, 0.0~1.0.
  @return The image data, or nil if an error occurs.
  */
-+ (nullable NSData *)encodeImage:(UIImage *)image type:(YYImageType)type quality:(CGFloat)quality;
++ (nullable NSData *)encodeImage:(UIImage *)image type:(WJImageType)type quality:(CGFloat)quality;
 
 /**
  Convenience method to encode image from a decoder.
@@ -290,7 +290,7 @@ typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
  @param quality Image quality, 0.0~1.0.
  @return The image data, or nil if an error occurs.
  */
-+ (nullable NSData *)encodeImageWithDecoder:(WJImageDecoder *)decoder type:(YYImageType)type quality:(CGFloat)quality;
++ (nullable NSData *)encodeImageWithDecoder:(WJImageDecoder *)decoder type:(WJImageType)type quality:(CGFloat)quality;
 
 @end
 
@@ -346,16 +346,16 @@ typedef NS_ENUM(NSUInteger, YYImageBlendOperation) {
 #pragma mark - Helper
 
 /// Detect a data's image type by reading the data's header 16 bytes (very fast).
-CG_EXTERN YYImageType YYImageDetectType(CFDataRef data);
+CG_EXTERN WJImageType YYImageDetectType(CFDataRef data);
 
-/// Convert YYImageType to UTI (such as kUTTypeJPEG).
-CG_EXTERN CFStringRef _Nullable YYImageTypeToUTType(YYImageType type);
+/// Convert WJImageType to UTI (such as kUTTypeJPEG).
+CG_EXTERN CFStringRef _Nullable WJImageTypeToUTType(WJImageType type);
 
-/// Convert UTI (such as kUTTypeJPEG) to YYImageType.
-CG_EXTERN YYImageType YYImageTypeFromUTType(CFStringRef uti);
+/// Convert UTI (such as kUTTypeJPEG) to WJImageType.
+CG_EXTERN WJImageType WJImageTypeFromUTType(CFStringRef uti);
 
 /// Get image type's file extension (such as @"jpg").
-CG_EXTERN NSString *_Nullable YYImageTypeGetExtension(YYImageType type);
+CG_EXTERN NSString *_Nullable WJImageTypeGetExtension(WJImageType type);
 
 
 
@@ -432,7 +432,7 @@ CG_EXTERN CGImageRef _Nullable YYCGImageCreateAffineTransformCopy(CGImageRef ima
  @param quality   The quality (0.0~1.0)
  @return A new image data, or nil if an error occurs.
  */
-CG_EXTERN CFDataRef _Nullable YYCGImageCreateEncodedData(CGImageRef imageRef, YYImageType type, CGFloat quality);
+CG_EXTERN CFDataRef _Nullable YYCGImageCreateEncodedData(CGImageRef imageRef, WJImageType type, CGFloat quality);
 
 
 /**
