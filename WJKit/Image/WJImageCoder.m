@@ -620,12 +620,12 @@ static uint8_t *yy_png_copy_frame_data_at_index(const uint8_t *data,
 #pragma mark - Helper
 
 /// Returns byte-aligned size.
-static inline size_t YYImageByteAlign(size_t size, size_t alignment) {
+static inline size_t WJImageByteAlign(size_t size, size_t alignment) {
     return ((size + (alignment - 1)) / alignment) * alignment;
 }
 
 /// Convert degree to radians
-static inline CGFloat YYImageDegreesToRadians(CGFloat degrees) {
+static inline CGFloat WJImageDegreesToRadians(CGFloat degrees) {
     return degrees * M_PI / 180;
 }
 
@@ -680,7 +680,7 @@ static void WJCGDataProviderReleaseDataCallback(void *info, const void *data, si
  @warning This method support iOS7.0 and later. If call it on iOS6, it just returns NO.
  CG_AVAILABLE_STARTING(__MAC_10_9, __IPHONE_7_0)
  */
-static BOOL YYCGImageDecodeToBitmapBufferWithAnyFormat(CGImageRef srcImage, vImage_Buffer *dest, vImage_CGImageFormat *destFormat) {
+static BOOL WJCGImageDecodeToBitmapBufferWithAnyFormat(CGImageRef srcImage, vImage_Buffer *dest, vImage_CGImageFormat *destFormat) {
     if (!srcImage || (((long)vImageConvert_AnyToAny) + 1 == 1) || !destFormat || !dest) return NO;
     size_t width = CGImageGetWidth(srcImage);
     size_t height = CGImageGetHeight(srcImage);
@@ -739,11 +739,25 @@ fail:
  
  @return Whether succeed.
  */
-static BOOL YYCGImageDecodeToBitmapBufferWith32BitFormat(CGImageRef srcImage, vImage_Buffer *dest, CGBitmapInfo bitmapInfo) {
+static BOOL WJCGImageDecodeToBitmapBufferWith32BitFormat(CGImageRef srcImage, vImage_Buffer *dest, CGBitmapInfo bitmapInfo) {
     if (!srcImage || !dest) return NO;
     size_t width = CGImageGetWidth(srcImage);
     size_t height = CGImageGetHeight(srcImage);
     if (width == 0 || height == 0) return NO;
+    
+    /*
+     Try convert with vImageConvert_AnyToAny() (avaliable since iOS 7.0).
+     If fail, try decode with CGContextDrawImage().
+     CGBitmapContext use a premultiplied alpha format, unpremultiply may lose precision.
+     */
+    vImage_CGImageFormat destFormat = {0};
+    destFormat.bitsPerComponent = 8;
+    destFormat.bitsPerPixel = 32;
+    destFormat.colorSpace = WJCGColorSpaceGetDeviceRGB();
+    destFormat.bitmapInfo = bitmapInfo;
+    dest->data = NULL;
+    if (WJCGImageDecodeToBitmapBufferWithAnyFormat(srcImage, dest, &destFormat)) return YES;
+    
     
     BOOL hasAlpha = NO;
     BOOL alphaFirst = NO;
@@ -790,19 +804,6 @@ static BOOL YYCGImageDecodeToBitmapBufferWith32BitFormat(CGImageRef srcImage, vI
             return NO;
         } break;
     }
-    
-    /*
-     Try convert with vImageConvert_AnyToAny() (avaliable since iOS 7.0).
-     If fail, try decode with CGContextDrawImage().
-     CGBitmapContext use a premultiplied alpha format, unpremultiply may lose precision.
-     */
-    vImage_CGImageFormat destFormat = {0};
-    destFormat.bitsPerComponent = 8;
-    destFormat.bitsPerPixel = 32;
-    destFormat.colorSpace = WJCGColorSpaceGetDeviceRGB();
-    destFormat.bitmapInfo = bitmapInfo;
-    dest->data = NULL;
-    if (YYCGImageDecodeToBitmapBufferWithAnyFormat(srcImage, dest, &destFormat)) return YES;
     
     CGBitmapInfo contextBitmapInfo = bitmapInfo & kCGBitmapByteOrderMask;
     if (!hasAlpha || alphaPremultiplied) {
@@ -902,7 +903,7 @@ CGImageRef WJCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeForDisplay
     }
 }
 
-CGImageRef YYCGImageCreateAffineTransformCopy(CGImageRef imageRef, CGAffineTransform transform, CGSize destSize, CGBitmapInfo destBitmapInfo) {
+CGImageRef WJCGImageCreateAffineTransformCopy(CGImageRef imageRef, CGAffineTransform transform, CGSize destSize, CGBitmapInfo destBitmapInfo) {
     if (!imageRef) return NULL;
     size_t srcWidth = CGImageGetWidth(imageRef);
     size_t srcHeight = CGImageGetHeight(imageRef);
@@ -913,9 +914,9 @@ CGImageRef YYCGImageCreateAffineTransformCopy(CGImageRef imageRef, CGAffineTrans
     CGDataProviderRef tmpProvider = NULL, destProvider = NULL;
     CGImageRef tmpImage = NULL, destImage = NULL;
     vImage_Buffer src = {0}, tmp = {0}, dest = {0};
-    if(!YYCGImageDecodeToBitmapBufferWith32BitFormat(imageRef, &src, kCGImageAlphaFirst | kCGBitmapByteOrderDefault)) return NULL;
+    if(!WJCGImageDecodeToBitmapBufferWith32BitFormat(imageRef, &src, kCGImageAlphaFirst | kCGBitmapByteOrderDefault)) return NULL;
     
-    size_t destBytesPerRow = YYImageByteAlign(destWidth * 4, 32);
+    size_t destBytesPerRow = WJImageByteAlign(destWidth * 4, 32);
     tmp.data = malloc(destHeight * destBytesPerRow);
     if (!tmp.data) goto fail;
     
@@ -942,7 +943,7 @@ CGImageRef YYCGImageCreateAffineTransformCopy(CGImageRef imageRef, CGAffineTrans
         return tmpImage;
     }
     
-    if (!YYCGImageDecodeToBitmapBufferWith32BitFormat(tmpImage, &dest, destBitmapInfo)) goto fail;
+    if (!WJCGImageDecodeToBitmapBufferWith32BitFormat(tmpImage, &dest, destBitmapInfo)) goto fail;
     CFRelease(tmpImage);
     tmpImage = NULL;
     
@@ -994,7 +995,7 @@ NSInteger YYUIImageOrientationToEXIFValue(UIImageOrientation orientation) {
     }
 }
 
-CGImageRef YYCGImageCreateCopyWithOrientation(CGImageRef imageRef, UIImageOrientation orientation, CGBitmapInfo destBitmapInfo) {
+CGImageRef WJCGImageCreateCopyWithOrientation(CGImageRef imageRef, UIImageOrientation orientation, CGBitmapInfo destBitmapInfo) {
     if (!imageRef) return NULL;
     if (orientation == UIImageOrientationUp) return (CGImageRef)CFRetain(imageRef);
     
@@ -1005,16 +1006,16 @@ CGImageRef YYCGImageCreateCopyWithOrientation(CGImageRef imageRef, UIImageOrient
     BOOL swapWidthAndHeight = NO;
     switch (orientation) {
         case UIImageOrientationDown: {
-            transform = CGAffineTransformMakeRotation(YYImageDegreesToRadians(180));
+            transform = CGAffineTransformMakeRotation(WJImageDegreesToRadians(180));
             transform = CGAffineTransformTranslate(transform, -(CGFloat)width, -(CGFloat)height);
         } break;
         case UIImageOrientationLeft: {
-            transform = CGAffineTransformMakeRotation(YYImageDegreesToRadians(90));
+            transform = CGAffineTransformMakeRotation(WJImageDegreesToRadians(90));
             transform = CGAffineTransformTranslate(transform, -(CGFloat)0, -(CGFloat)height);
             swapWidthAndHeight = YES;
         } break;
         case UIImageOrientationRight: {
-            transform = CGAffineTransformMakeRotation(YYImageDegreesToRadians(-90));
+            transform = CGAffineTransformMakeRotation(WJImageDegreesToRadians(-90));
             transform = CGAffineTransformTranslate(transform, -(CGFloat)width, (CGFloat)0);
             swapWidthAndHeight = YES;
         } break;
@@ -1027,13 +1028,13 @@ CGImageRef YYCGImageCreateCopyWithOrientation(CGImageRef imageRef, UIImageOrient
             transform = CGAffineTransformScale(transform, 1, -1);
         } break;
         case UIImageOrientationLeftMirrored: {
-            transform = CGAffineTransformMakeRotation(YYImageDegreesToRadians(-90));
+            transform = CGAffineTransformMakeRotation(WJImageDegreesToRadians(-90));
             transform = CGAffineTransformScale(transform, 1, -1);
             transform = CGAffineTransformTranslate(transform, -(CGFloat)width, -(CGFloat)height);
             swapWidthAndHeight = YES;
         } break;
         case UIImageOrientationRightMirrored: {
-            transform = CGAffineTransformMakeRotation(YYImageDegreesToRadians(90));
+            transform = CGAffineTransformMakeRotation(WJImageDegreesToRadians(90));
             transform = CGAffineTransformScale(transform, 1, -1);
             swapWidthAndHeight = YES;
         } break;
@@ -1047,7 +1048,7 @@ CGImageRef YYCGImageCreateCopyWithOrientation(CGImageRef imageRef, UIImageOrient
         destSize.height = width;
     }
     
-    return YYCGImageCreateAffineTransformCopy(imageRef, transform, destSize, destBitmapInfo);
+    return WJCGImageCreateAffineTransformCopy(imageRef, transform, destSize, destBitmapInfo);
 }
 
 WJImageType WJImageDetectType(CFDataRef data) {
@@ -1181,9 +1182,9 @@ CFDataRef YYCGImageCreateEncodedData(CGImageRef imageRef, WJImageType type, CGFl
     if (type == WJImageTypeWebP) {
 #if WJIMAGE_WEBP_ENABLED
         if (quality == 1) {
-            return YYCGImageCreateEncodedWebPData(imageRef, YES, quality, 4, YYImagePresetDefault);
+            return WJCGImageCreateEncodedWebPData(imageRef, YES, quality, 4, WJImagePresetDefault);
         } else {
-            return YYCGImageCreateEncodedWebPData(imageRef, NO, quality, 4, YYImagePresetDefault);
+            return WJCGImageCreateEncodedWebPData(imageRef, NO, quality, 4, WJImagePresetDefault);
         }
 #else
         return NULL;
@@ -1218,11 +1219,11 @@ CFDataRef YYCGImageCreateEncodedData(CGImageRef imageRef, WJImageType type, CGFl
 
 #if WJIMAGE_WEBP_ENABLED
 
-BOOL YYImageWebPAvailable() {
+BOOL WJImageWebPAvailable() {
     return YES;
 }
 
-CFDataRef YYCGImageCreateEncodedWebPData(CGImageRef imageRef, BOOL lossless, CGFloat quality, int compressLevel, YYImagePreset preset) {
+CFDataRef WJCGImageCreateEncodedWebPData(CGImageRef imageRef, BOOL lossless, CGFloat quality, int compressLevel, WJImagePreset preset) {
     if (!imageRef) return nil;
     size_t width = CGImageGetWidth(imageRef);
     size_t height = CGImageGetHeight(imageRef);
@@ -1230,7 +1231,7 @@ CFDataRef YYCGImageCreateEncodedWebPData(CGImageRef imageRef, BOOL lossless, CGF
     if (height == 0 || height > WEBP_MAX_DIMENSION) return nil;
     
     vImage_Buffer buffer = {0};
-    if(!YYCGImageDecodeToBitmapBufferWith32BitFormat(imageRef, &buffer, kCGImageAlphaLast | kCGBitmapByteOrderDefault)) return nil;
+    if(!WJCGImageDecodeToBitmapBufferWith32BitFormat(imageRef, &buffer, kCGImageAlphaLast | kCGBitmapByteOrderDefault)) return nil;
     
     WebPConfig config = {0};
     WebPPicture picture = {0};
@@ -1239,7 +1240,7 @@ CFDataRef YYCGImageCreateEncodedWebPData(CGImageRef imageRef, BOOL lossless, CGF
     BOOL pictureNeedFree = NO;
     
     quality = quality < 0 ? 0 : quality > 1 ? 1 : quality;
-    preset = preset > YYImagePresetText ? YYImagePresetDefault : preset;
+    preset = preset > WJImagePresetText ? WJImagePresetDefault : preset;
     compressLevel = compressLevel < 0 ? 0 : compressLevel > 6 ? 6 : compressLevel;
     if (!WebPConfigPreset(&config, (WebPPreset)preset, quality)) goto fail;
     
@@ -1364,7 +1365,7 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
     hasAlpha = config.input.has_alpha;
     bitsPerComponent = 8;
     bitsPerPixel = 32;
-    bytesPerRow = YYImageByteAlign(bitsPerPixel / 8 * canvasWidth, 32);
+    bytesPerRow = WJImageByteAlign(bitsPerPixel / 8 * canvasWidth, 32);
     destLength = bytesPerRow * canvasHeight;
     if (decodeForDisplay) {
         bitmapInfo = kCGBitmapByteOrder32Host;
@@ -1425,11 +1426,11 @@ fail:
 
 #else
 
-BOOL YYImageWebPAvailable() {
+BOOL WJImageWebPAvailable() {
     return NO;
 }
 
-CFDataRef YYCGImageCreateEncodedWebPData(CGImageRef imageRef, BOOL lossless, CGFloat quality, int compressLevel, YYImagePreset preset) {
+CFDataRef WJCGImageCreateEncodedWebPData(CGImageRef imageRef, BOOL lossless, CGFloat quality, int compressLevel, WJImagePreset preset) {
     NSLog(@"WebP decoder is disabled");
     return NULL;
 }
@@ -2127,7 +2128,7 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
         
         size_t bitsPerComponent = 8;
         size_t bitsPerPixel = 32;
-        size_t bytesPerRow = YYImageByteAlign(bitsPerPixel / 8 * width, 32);
+        size_t bytesPerRow = WJImageByteAlign(bitsPerPixel / 8 * width, 32);
         size_t length = bytesPerRow * height;
         CGBitmapInfo bitmapInfo = kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst; //bgrA
         
@@ -2617,7 +2618,7 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
     for (NSUInteger i = 0; i < _images.count; i++) {
         CGImageRef image = [self _newCGImageFromIndex:i decoded:NO];
         if (!image) return nil;
-        CFDataRef frameData = YYCGImageCreateEncodedWebPData(image, _lossless, _quality, 4, YYImagePresetDefault);
+        CFDataRef frameData = WJCGImageCreateEncodedWebPData(image, _lossless, _quality, 4, WJImagePresetDefault);
         CFRelease(image);
         if (!frameData) return nil;
         [webpDatas addObject:(__bridge id)frameData];
@@ -2702,7 +2703,7 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
                 UIImage *image = imageSrc;
                 if (image.imageOrientation != UIImageOrientationUp && image.CGImage) {
                     CGBitmapInfo info = CGImageGetBitmapInfo(image.CGImage) | CGImageGetAlphaInfo(image.CGImage);
-                    CGImageRef rotated = YYCGImageCreateCopyWithOrientation(image.CGImage, image.imageOrientation, info);
+                    CGImageRef rotated = WJCGImageCreateCopyWithOrientation(image.CGImage, image.imageOrientation, info);
                     if (rotated) {
                         image = [UIImage imageWithCGImage:rotated];
                         CFRelease(rotated);
@@ -2740,7 +2741,7 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
     CGImageRef imageRef = image.CGImage;
     if (!imageRef) return NULL;
     if (image.imageOrientation != UIImageOrientationUp) {
-        return YYCGImageCreateCopyWithOrientation(imageRef, image.imageOrientation, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
+        return WJCGImageCreateCopyWithOrientation(imageRef, image.imageOrientation, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
     }
     if (decoded) {
         return WJCGImageCreateDecodedCopy(imageRef, YES);
@@ -2825,7 +2826,7 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
                 hasAlpha = YES;
             }
             if (self.imageOrientation != UIImageOrientationUp) {
-                CGImageRef rotated = YYCGImageCreateCopyWithOrientation(imageRef, self.imageOrientation, bitmapInfo | alphaInfo);
+                CGImageRef rotated = WJCGImageCreateCopyWithOrientation(imageRef, self.imageOrientation, bitmapInfo | alphaInfo);
                 if (rotated) {
                     CFRelease(imageRef);
                     imageRef = rotated;

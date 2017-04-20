@@ -346,7 +346,7 @@ typedef NS_ENUM(NSUInteger, WJImageBlendOperation) {
 #pragma mark - Helper
 
 /// Detect a data's image type by reading the data's header 16 bytes (very fast).
-CG_EXTERN WJImageType YYImageDetectType(CFDataRef data);
+CG_EXTERN WJImageType WJImageDetectType(CFDataRef data);
 
 /// Convert WJImageType to UTI (such as kUTTypeJPEG).
 CG_EXTERN CFStringRef _Nullable WJImageTypeToUTType(WJImageType type);
@@ -360,7 +360,7 @@ CG_EXTERN NSString *_Nullable WJImageTypeGetExtension(WJImageType type);
 
 
 /// Returns the shared DeviceRGB color space.
-CG_EXTERN CGColorSpaceRef YYCGColorSpaceGetDeviceRGB();
+CG_EXTERN CGColorSpaceRef WJCGColorSpaceGetDeviceRGB();
 
 /// Returns the shared DeviceGray color space.
 CG_EXTERN CGColorSpaceRef YYCGColorSpaceGetDeviceGray();
@@ -374,7 +374,7 @@ CG_EXTERN BOOL YYCGColorSpaceIsDeviceGray(CGColorSpaceRef space);
 
 
 /// Convert EXIF orientation value to UIImageOrientation.
-CG_EXTERN UIImageOrientation YYUIImageOrientationFromEXIFValue(NSInteger value);
+CG_EXTERN UIImageOrientation WJUIImageOrientationFromEXIFValue(NSInteger value);
 
 /// Convert UIImageOrientation to EXIF orientation value.
 CG_EXTERN NSInteger YYUIImageOrientationToEXIFValue(UIImageOrientation orientation);
@@ -396,7 +396,7 @@ CG_EXTERN NSInteger YYUIImageOrientationToEXIFValue(UIImageOrientation orientati
  
  @return A decoded image, or NULL if an error occurs.
  */
-CG_EXTERN CGImageRef _Nullable YYCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeForDisplay);
+CG_EXTERN CGImageRef _Nullable WJCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeForDisplay);
 
 /**
  Create an image copy with an orientation.
@@ -406,7 +406,7 @@ CG_EXTERN CGImageRef _Nullable YYCGImageCreateDecodedCopy(CGImageRef imageRef, B
  @param destBitmapInfo Destimation image bitmap, only support 32bit format (such as ARGB8888).
  @return A new image, or NULL if an error occurs.
  */
-CG_EXTERN CGImageRef _Nullable YYCGImageCreateCopyWithOrientation(CGImageRef imageRef,
+CG_EXTERN CGImageRef _Nullable WJCGImageCreateCopyWithOrientation(CGImageRef imageRef,
                                                                   UIImageOrientation orientation,
                                                                   CGBitmapInfo destBitmapInfo);
 
@@ -419,7 +419,7 @@ CG_EXTERN CGImageRef _Nullable YYCGImageCreateCopyWithOrientation(CGImageRef ima
  @param destBitmapInfo Destimation image bitmap, only support 32bit format (such as ARGB8888).
  @return A new image, or NULL if an error occurs.
  */
-CG_EXTERN CGImageRef _Nullable YYCGImageCreateAffineTransformCopy(CGImageRef imageRef,
+CG_EXTERN CGImageRef _Nullable WJCGImageCreateAffineTransformCopy(CGImageRef imageRef,
                                                                   CGAffineTransform transform,
                                                                   CGSize destSize,
                                                                   CGBitmapInfo destBitmapInfo);
@@ -438,7 +438,7 @@ CG_EXTERN CFDataRef _Nullable YYCGImageCreateEncodedData(CGImageRef imageRef, WJ
 /**
  Whether WebP is available in YYImage.
  */
-CG_EXTERN BOOL YYImageWebPAvailable();
+CG_EXTERN BOOL WJImageWebPAvailable();
 
 /**
  Get a webp image frame count;
@@ -468,13 +468,13 @@ CG_EXTERN CGImageRef _Nullable YYCGImageCreateWithWebPData(CFDataRef webpData,
                                                            BOOL bypassFiltering,
                                                            BOOL noFancyUpsampling);
 
-typedef NS_ENUM(NSUInteger, YYImagePreset) {
-    YYImagePresetDefault = 0,  ///< default preset.
-    YYImagePresetPicture,      ///< digital picture, like portrait, inner shot
-    YYImagePresetPhoto,        ///< outdoor photograph, with natural lighting
-    YYImagePresetDrawing,      ///< hand or line drawing, with high-contrast details
-    YYImagePresetIcon,         ///< small-sized colorful images
-    YYImagePresetText          ///< text-like
+typedef NS_ENUM(NSUInteger, WJImagePreset) {
+    WJImagePresetDefault = 0,  ///< default preset.
+    WJImagePresetPicture,      ///< digital picture, like portrait, inner shot
+    WJImagePresetPhoto,        ///< outdoor photograph, with natural lighting
+    WJImagePresetDrawing,      ///< hand or line drawing, with high-contrast details
+    WJImagePresetIcon,         ///< small-sized colorful images
+    WJImagePresetText          ///< text-like
 };
 
 /**
@@ -485,14 +485,14 @@ typedef NS_ENUM(NSUInteger, YYImagePreset) {
  @param quality       0.0~1.0 (0=smallest file, 1.0=biggest file)
  For lossless image, try the value near 1.0; for lossy, try the value near 0.8.
  @param compressLevel 0~6 (0=fast, 6=slower-better). Default is 4.
- @param preset        Preset for different image type, default is YYImagePresetDefault.
+ @param preset        Preset for different image type, default is WJImagePresetDefault.
  @return WebP data, or nil if an error occurs.
  */
-CG_EXTERN CFDataRef _Nullable YYCGImageCreateEncodedWebPData(CGImageRef imageRef,
+CG_EXTERN CFDataRef _Nullable WJCGImageCreateEncodedWebPData(CGImageRef imageRef,
                                                              BOOL lossless,
                                                              CGFloat quality,
                                                              int compressLevel,
-                                                             YYImagePreset preset);
+                                                             WJImagePreset preset);
 
 
 
