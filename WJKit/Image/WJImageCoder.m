@@ -38,16 +38,16 @@ __has_include("webp/demux.h")  && __has_include("webp/mux.h")
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Utility (for little endian platform)
 
-#define YY_FOUR_CC(c1,c2,c3,c4) ((uint32_t)(((c4) << 24) | ((c3) << 16) | ((c2) << 8) | (c1)))
-#define YY_TWO_CC(c1,c2) ((uint16_t)(((c2) << 8) | (c1)))
+#define WJ_FOUR_CC(c1,c2,c3,c4) ((uint32_t)(((c4) << 24) | ((c3) << 16) | ((c2) << 8) | (c1)))
+#define WJ_TWO_CC(c1,c2) ((uint16_t)(((c2) << 8) | (c1)))
 
-static inline uint16_t yy_swap_endian_uint16(uint16_t value) {
+static inline uint16_t wj_swap_endian_uint16(uint16_t value) {
     return
     (uint16_t) ((value & 0x00FF) << 8) |
     (uint16_t) ((value & 0xFF00) >> 8) ;
 }
 
-static inline uint32_t yy_swap_endian_uint32(uint32_t value) {
+static inline uint32_t wj_swap_endian_uint32(uint32_t value) {
     return
     (uint32_t)((value & 0x000000FFU) << 24) |
     (uint32_t)((value & 0x0000FF00U) <<  8) |
@@ -204,8 +204,8 @@ typedef struct {
 } yy_png_info;
 
 static void yy_png_chunk_IHDR_read(yy_png_chunk_IHDR *IHDR, const uint8_t *data) {
-    IHDR->width = yy_swap_endian_uint32(*((uint32_t *)(data)));
-    IHDR->height = yy_swap_endian_uint32(*((uint32_t *)(data + 4)));
+    IHDR->width = wj_swap_endian_uint32(*((uint32_t *)(data)));
+    IHDR->height = wj_swap_endian_uint32(*((uint32_t *)(data + 4)));
     IHDR->bit_depth = data[8];
     IHDR->color_type = data[9];
     IHDR->compression_method = data[10];
@@ -214,8 +214,8 @@ static void yy_png_chunk_IHDR_read(yy_png_chunk_IHDR *IHDR, const uint8_t *data)
 }
 
 static void yy_png_chunk_IHDR_write(yy_png_chunk_IHDR *IHDR, uint8_t *data) {
-    *((uint32_t *)(data)) = yy_swap_endian_uint32(IHDR->width);
-    *((uint32_t *)(data + 4)) = yy_swap_endian_uint32(IHDR->height);
+    *((uint32_t *)(data)) = wj_swap_endian_uint32(IHDR->width);
+    *((uint32_t *)(data + 4)) = wj_swap_endian_uint32(IHDR->height);
     data[8] = IHDR->bit_depth;
     data[9] = IHDR->color_type;
     data[10] = IHDR->compression_method;
@@ -224,25 +224,25 @@ static void yy_png_chunk_IHDR_write(yy_png_chunk_IHDR *IHDR, uint8_t *data) {
 }
 
 static void yy_png_chunk_fcTL_read(yy_png_chunk_fcTL *fcTL, const uint8_t *data) {
-    fcTL->sequence_number = yy_swap_endian_uint32(*((uint32_t *)(data)));
-    fcTL->width = yy_swap_endian_uint32(*((uint32_t *)(data + 4)));
-    fcTL->height = yy_swap_endian_uint32(*((uint32_t *)(data + 8)));
-    fcTL->x_offset = yy_swap_endian_uint32(*((uint32_t *)(data + 12)));
-    fcTL->y_offset = yy_swap_endian_uint32(*((uint32_t *)(data + 16)));
-    fcTL->delay_num = yy_swap_endian_uint16(*((uint16_t *)(data + 20)));
-    fcTL->delay_den = yy_swap_endian_uint16(*((uint16_t *)(data + 22)));
+    fcTL->sequence_number = wj_swap_endian_uint32(*((uint32_t *)(data)));
+    fcTL->width = wj_swap_endian_uint32(*((uint32_t *)(data + 4)));
+    fcTL->height = wj_swap_endian_uint32(*((uint32_t *)(data + 8)));
+    fcTL->x_offset = wj_swap_endian_uint32(*((uint32_t *)(data + 12)));
+    fcTL->y_offset = wj_swap_endian_uint32(*((uint32_t *)(data + 16)));
+    fcTL->delay_num = wj_swap_endian_uint16(*((uint16_t *)(data + 20)));
+    fcTL->delay_den = wj_swap_endian_uint16(*((uint16_t *)(data + 22)));
     fcTL->dispose_op = data[24];
     fcTL->blend_op = data[25];
 }
 
 static void yy_png_chunk_fcTL_write(yy_png_chunk_fcTL *fcTL, uint8_t *data) {
-    *((uint32_t *)(data)) = yy_swap_endian_uint32(fcTL->sequence_number);
-    *((uint32_t *)(data + 4)) = yy_swap_endian_uint32(fcTL->width);
-    *((uint32_t *)(data + 8)) = yy_swap_endian_uint32(fcTL->height);
-    *((uint32_t *)(data + 12)) = yy_swap_endian_uint32(fcTL->x_offset);
-    *((uint32_t *)(data + 16)) = yy_swap_endian_uint32(fcTL->y_offset);
-    *((uint16_t *)(data + 20)) = yy_swap_endian_uint16(fcTL->delay_num);
-    *((uint16_t *)(data + 22)) = yy_swap_endian_uint16(fcTL->delay_den);
+    *((uint32_t *)(data)) = wj_swap_endian_uint32(fcTL->sequence_number);
+    *((uint32_t *)(data + 4)) = wj_swap_endian_uint32(fcTL->width);
+    *((uint32_t *)(data + 8)) = wj_swap_endian_uint32(fcTL->height);
+    *((uint32_t *)(data + 12)) = wj_swap_endian_uint32(fcTL->x_offset);
+    *((uint32_t *)(data + 16)) = wj_swap_endian_uint32(fcTL->y_offset);
+    *((uint16_t *)(data + 20)) = wj_swap_endian_uint16(fcTL->delay_num);
+    *((uint16_t *)(data + 22)) = wj_swap_endian_uint16(fcTL->delay_den);
     data[24] = fcTL->dispose_op;
     data[25] = fcTL->blend_op;
 }
@@ -310,8 +310,8 @@ static bool yy_png_validate_animation_chunk_order(yy_png_chunk_info *chunks,  /*
      `fcTL` must appear before `IDAT` or `fdAT`.
      */
     if (chunk_num <= 2) return false;
-    if (chunks->fourcc != YY_FOUR_CC('I', 'H', 'D', 'R')) return false;
-    if ((chunks + chunk_num - 1)->fourcc != YY_FOUR_CC('I', 'E', 'N', 'D')) return false;
+    if (chunks->fourcc != WJ_FOUR_CC('I', 'H', 'D', 'R')) return false;
+    if ((chunks + chunk_num - 1)->fourcc != WJ_FOUR_CC('I', 'E', 'N', 'D')) return false;
     
     uint32_t prev_fourcc = 0;
     uint32_t IHDR_num = 0;
@@ -323,13 +323,13 @@ static bool yy_png_validate_animation_chunk_order(yy_png_chunk_info *chunks,  /*
     for (uint32_t i = 0; i < chunk_num; i++) {
         yy_png_chunk_info *chunk = chunks + i;
         switch (chunk->fourcc) {
-            case YY_FOUR_CC('I', 'H', 'D', 'R'): {  // png header
+            case WJ_FOUR_CC('I', 'H', 'D', 'R'): {  // png header
                 if (i != 0) return false;
                 if (IHDR_num > 0) return false;
                 IHDR_num++;
             } break;
-            case YY_FOUR_CC('I', 'D', 'A', 'T'): {  // png data
-                if (prev_fourcc != YY_FOUR_CC('I', 'D', 'A', 'T')) {
+            case WJ_FOUR_CC('I', 'D', 'A', 'T'): {  // png data
+                if (prev_fourcc != WJ_FOUR_CC('I', 'D', 'A', 'T')) {
                     if (IDAT_num == 0)
                         first_IDAT = i;
                     else
@@ -337,25 +337,25 @@ static bool yy_png_validate_animation_chunk_order(yy_png_chunk_info *chunks,  /*
                 }
                 IDAT_num++;
             } break;
-            case YY_FOUR_CC('a', 'c', 'T', 'L'): {  // apng control
+            case WJ_FOUR_CC('a', 'c', 'T', 'L'): {  // apng control
                 if (acTL_num > 0) return false;
                 acTL_num++;
             } break;
-            case YY_FOUR_CC('f', 'c', 'T', 'L'): {  // apng frame control
+            case WJ_FOUR_CC('f', 'c', 'T', 'L'): {  // apng frame control
                 if (i + 1 == chunk_num) return false;
-                if ((chunk + 1)->fourcc != YY_FOUR_CC('f', 'd', 'A', 'T') &&
-                    (chunk + 1)->fourcc != YY_FOUR_CC('I', 'D', 'A', 'T')) {
+                if ((chunk + 1)->fourcc != WJ_FOUR_CC('f', 'd', 'A', 'T') &&
+                    (chunk + 1)->fourcc != WJ_FOUR_CC('I', 'D', 'A', 'T')) {
                     return false;
                 }
                 if (fcTL_num == 0) {
-                    if ((chunk + 1)->fourcc == YY_FOUR_CC('I', 'D', 'A', 'T')) {
+                    if ((chunk + 1)->fourcc == WJ_FOUR_CC('I', 'D', 'A', 'T')) {
                         first_frame_cover = true;
                     }
                 }
                 fcTL_num++;
             } break;
-            case YY_FOUR_CC('f', 'd', 'A', 'T'): {  // apng data
-                if (prev_fourcc != YY_FOUR_CC('f', 'd', 'A', 'T') && prev_fourcc != YY_FOUR_CC('f', 'c', 'T', 'L')) {
+            case WJ_FOUR_CC('f', 'd', 'A', 'T'): {  // apng data
+                if (prev_fourcc != WJ_FOUR_CC('f', 'd', 'A', 'T') && prev_fourcc != WJ_FOUR_CC('f', 'c', 'T', 'L')) {
                     return false;
                 }
             } break;
@@ -390,8 +390,8 @@ static void yy_png_info_release(yy_png_info *info) {
  */
 static yy_png_info *yy_png_info_create(const uint8_t *data, uint32_t length) {
     if (length < 32) return NULL;
-    if (*((uint32_t *)data) != YY_FOUR_CC(0x89, 0x50, 0x4E, 0x47)) return NULL;
-    if (*((uint32_t *)(data + 4)) != YY_FOUR_CC(0x0D, 0x0A, 0x1A, 0x0A)) return NULL;
+    if (*((uint32_t *)data) != WJ_FOUR_CC(0x89, 0x50, 0x4E, 0x47)) return NULL;
+    if (*((uint32_t *)(data + 4)) != WJ_FOUR_CC(0x0D, 0x0A, 0x1A, 0x0A)) return NULL;
     
     uint32_t chunk_realloc_num = 16;
     yy_png_chunk_info *chunks = malloc(sizeof(yy_png_chunk_info) * chunk_realloc_num);
@@ -419,7 +419,7 @@ static yy_png_info *yy_png_info_create(const uint8_t *data, uint32_t length) {
         yy_png_chunk_info *chunk = chunks + chunk_num;
         const uint8_t *chunk_data = data + offset;
         chunk->offset = offset;
-        chunk->length = yy_swap_endian_uint32(*((uint32_t *)chunk_data));
+        chunk->length = wj_swap_endian_uint32(*((uint32_t *)chunk_data));
         if ((uint64_t)chunk->offset + (uint64_t)chunk->length + 12 > length) {
             free(chunks);
             return NULL;
@@ -427,22 +427,22 @@ static yy_png_info *yy_png_info_create(const uint8_t *data, uint32_t length) {
         
         chunk->fourcc = *((uint32_t *)(chunk_data + 4));
         if ((uint64_t)chunk->offset + 4 + chunk->length + 4 > (uint64_t)length) break;
-        chunk->crc32 = yy_swap_endian_uint32(*((uint32_t *)(chunk_data + 8 + chunk->length)));
+        chunk->crc32 = wj_swap_endian_uint32(*((uint32_t *)(chunk_data + 8 + chunk->length)));
         chunk_num++;
         offset += 12 + chunk->length;
         
         switch (chunk->fourcc) {
-            case YY_FOUR_CC('a', 'c', 'T', 'L') : {
+            case WJ_FOUR_CC('a', 'c', 'T', 'L') : {
                 if (chunk->length == 8) {
-                    apng_frame_number = yy_swap_endian_uint32(*((uint32_t *)(chunk_data + 8)));
-                    apng_loop_num = yy_swap_endian_uint32(*((uint32_t *)(chunk_data + 12)));
+                    apng_frame_number = wj_swap_endian_uint32(*((uint32_t *)(chunk_data + 8)));
+                    apng_loop_num = wj_swap_endian_uint32(*((uint32_t *)(chunk_data + 12)));
                 } else {
                     apng_chunk_error = true;
                 }
             } break;
-            case YY_FOUR_CC('f', 'c', 'T', 'L') :
-            case YY_FOUR_CC('f', 'd', 'A', 'T') : {
-                if (chunk->fourcc == YY_FOUR_CC('f', 'c', 'T', 'L')) {
+            case WJ_FOUR_CC('f', 'c', 'T', 'L') :
+            case WJ_FOUR_CC('f', 'd', 'A', 'T') : {
+                if (chunk->fourcc == WJ_FOUR_CC('f', 'c', 'T', 'L')) {
                     if (chunk->length != 26) {
                         apng_chunk_error = true;
                     } else {
@@ -450,7 +450,7 @@ static yy_png_info *yy_png_info_create(const uint8_t *data, uint32_t length) {
                     }
                 }
                 if (chunk->length > 4) {
-                    uint32_t sequence = yy_swap_endian_uint32(*((uint32_t *)(chunk_data + 8)));
+                    uint32_t sequence = wj_swap_endian_uint32(*((uint32_t *)(chunk_data + 8)));
                     if (apng_sequence_index + 1 == sequence) {
                         apng_sequence_index++;
                     } else {
@@ -460,14 +460,14 @@ static yy_png_info *yy_png_info_create(const uint8_t *data, uint32_t length) {
                     apng_chunk_error = true;
                 }
             } break;
-            case YY_FOUR_CC('I', 'E', 'N', 'D') : {
+            case WJ_FOUR_CC('I', 'E', 'N', 'D') : {
                 offset = length; // end, break do-while loop
             } break;
         }
     } while (offset + 12 <= length);
     
     if (chunk_num < 3 ||
-        chunks->fourcc != YY_FOUR_CC('I', 'H', 'D', 'R') ||
+        chunks->fourcc != WJ_FOUR_CC('I', 'H', 'D', 'R') ||
         chunks->length != 13) {
         free(chunks);
         return NULL;
@@ -511,7 +511,7 @@ static yy_png_info *yy_png_info_create(const uint8_t *data, uint32_t length) {
         for (int32_t i = 0; i < info->chunk_num; i++) {
             yy_png_chunk_info *chunk = info->chunks + i;
             switch (chunk->fourcc) {
-                case YY_FOUR_CC('I', 'D', 'A', 'T'): {
+                case WJ_FOUR_CC('I', 'D', 'A', 'T'): {
                     if (info->apng_shared_insert_index == 0) {
                         info->apng_shared_insert_index = i;
                     }
@@ -521,15 +521,15 @@ static yy_png_info *yy_png_info_create(const uint8_t *data, uint32_t length) {
                         frame->chunk_size += chunk->length + 12;
                     }
                 } break;
-                case YY_FOUR_CC('a', 'c', 'T', 'L'): {
+                case WJ_FOUR_CC('a', 'c', 'T', 'L'): {
                 } break;
-                case YY_FOUR_CC('f', 'c', 'T', 'L'): {
+                case WJ_FOUR_CC('f', 'c', 'T', 'L'): {
                     frame_index++;
                     yy_png_frame_info *frame = info->apng_frames + frame_index;
                     frame->chunk_index = i + 1;
                     yy_png_chunk_fcTL_read(&frame->frame_control, data + chunk->offset + 8);
                 } break;
-                case YY_FOUR_CC('f', 'd', 'A', 'T'): {
+                case WJ_FOUR_CC('f', 'd', 'A', 'T'): {
                     yy_png_frame_info *frame = info->apng_frames + frame_index;
                     frame->chunk_num++;
                     frame->chunk_size += chunk->length + 12;
@@ -583,12 +583,12 @@ static uint8_t *yy_png_copy_frame_data_at_index(const uint8_t *data,
             inserted = true;
             for (uint32_t c = 0; c < frame_info->chunk_num; c++) {
                 yy_png_chunk_info *insert_chunk_info = info->chunks + frame_info->chunk_index + c;
-                if (insert_chunk_info->fourcc == YY_FOUR_CC('f', 'd', 'A', 'T')) {
-                    *((uint32_t *)(frame_data + data_offset)) = yy_swap_endian_uint32(insert_chunk_info->length - 4);
-                    *((uint32_t *)(frame_data + data_offset + 4)) = YY_FOUR_CC('I', 'D', 'A', 'T');
+                if (insert_chunk_info->fourcc == WJ_FOUR_CC('f', 'd', 'A', 'T')) {
+                    *((uint32_t *)(frame_data + data_offset)) = wj_swap_endian_uint32(insert_chunk_info->length - 4);
+                    *((uint32_t *)(frame_data + data_offset + 4)) = WJ_FOUR_CC('I', 'D', 'A', 'T');
                     memcpy(frame_data + data_offset + 8, data + insert_chunk_info->offset + 12, insert_chunk_info->length - 4);
                     uint32_t crc = (uint32_t)crc32(0, frame_data + data_offset + 4, insert_chunk_info->length);
-                    *((uint32_t *)(frame_data + data_offset + insert_chunk_info->length + 4)) = yy_swap_endian_uint32(crc);
+                    *((uint32_t *)(frame_data + data_offset + insert_chunk_info->length + 4)) = wj_swap_endian_uint32(crc);
                     data_offset += insert_chunk_info->length + 8;
                 } else { // IDAT
                     memcpy(frame_data + data_offset, data + insert_chunk_info->offset, insert_chunk_info->length + 12);
@@ -597,14 +597,14 @@ static uint8_t *yy_png_copy_frame_data_at_index(const uint8_t *data,
             }
         }
         
-        if (shared_chunk_info->fourcc == YY_FOUR_CC('I', 'H', 'D', 'R')) {
+        if (shared_chunk_info->fourcc == WJ_FOUR_CC('I', 'H', 'D', 'R')) {
             uint8_t tmp[25] = {0};
             memcpy(tmp, data + shared_chunk_info->offset, 25);
             yy_png_chunk_IHDR IHDR = info->header;
             IHDR.width = frame_info->frame_control.width;
             IHDR.height = frame_info->frame_control.height;
             yy_png_chunk_IHDR_write(&IHDR, tmp + 8);
-            *((uint32_t *)(tmp + 21)) = yy_swap_endian_uint32((uint32_t)crc32(0, tmp + 4, 17));
+            *((uint32_t *)(tmp + 21)) = wj_swap_endian_uint32((uint32_t)crc32(0, tmp + 4, 17));
             memcpy(frame_data + data_offset, tmp, 25);
             data_offset += 25;
         } else {
@@ -638,7 +638,7 @@ CGColorSpaceRef WJCGColorSpaceGetDeviceRGB() {
     return space;
 }
 
-CGColorSpaceRef YYCGColorSpaceGetDeviceGray() {
+CGColorSpaceRef WJCGColorSpaceGetDeviceGray() {
     static CGColorSpaceRef space;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -647,12 +647,12 @@ CGColorSpaceRef YYCGColorSpaceGetDeviceGray() {
     return space;
 }
 
-BOOL YYCGColorSpaceIsDeviceRGB(CGColorSpaceRef space) {
+BOOL WJCGColorSpaceIsDeviceRGB(CGColorSpaceRef space) {
     return space && CFEqual(space, WJCGColorSpaceGetDeviceRGB());
 }
 
-BOOL YYCGColorSpaceIsDeviceGray(CGColorSpaceRef space) {
-    return space && CFEqual(space, YYCGColorSpaceGetDeviceGray());
+BOOL WJCGColorSpaceIsDeviceGray(CGColorSpaceRef space) {
+    return space && CFEqual(space, WJCGColorSpaceGetDeviceGray());
 }
 
 /**
@@ -981,7 +981,7 @@ UIImageOrientation WJUIImageOrientationFromEXIFValue(NSInteger value) {
     }
 }
 
-NSInteger YYUIImageOrientationToEXIFValue(UIImageOrientation orientation) {
+NSInteger WJUIImageOrientationToEXIFValue(UIImageOrientation orientation) {
     switch (orientation) {
         case UIImageOrientationUp: return kCGImagePropertyOrientationUp;
         case UIImageOrientationDown: return kCGImagePropertyOrientationDown;
@@ -1060,45 +1060,45 @@ WJImageType WJImageDetectType(CFDataRef data) {
     
     uint32_t magic4 = *((uint32_t *)bytes);
     switch (magic4) {
-        case YY_FOUR_CC(0x4D, 0x4D, 0x00, 0x2A): { // big endian TIFF
+        case WJ_FOUR_CC(0x4D, 0x4D, 0x00, 0x2A): { // big endian TIFF
             return WJImageTypeTIFF;
         } break;
             
-        case YY_FOUR_CC(0x49, 0x49, 0x2A, 0x00): { // little endian TIFF
+        case WJ_FOUR_CC(0x49, 0x49, 0x2A, 0x00): { // little endian TIFF
             return WJImageTypeTIFF;
         } break;
             
-        case YY_FOUR_CC(0x00, 0x00, 0x01, 0x00): { // ICO
+        case WJ_FOUR_CC(0x00, 0x00, 0x01, 0x00): { // ICO
             return WJImageTypeICO;
         } break;
             
-        case YY_FOUR_CC(0x00, 0x00, 0x02, 0x00): { // CUR
+        case WJ_FOUR_CC(0x00, 0x00, 0x02, 0x00): { // CUR
             return WJImageTypeICO;
         } break;
             
-        case YY_FOUR_CC('i', 'c', 'n', 's'): { // ICNS
+        case WJ_FOUR_CC('i', 'c', 'n', 's'): { // ICNS
             return WJImageTypeICNS;
         } break;
             
-        case YY_FOUR_CC('G', 'I', 'F', '8'): { // GIF
+        case WJ_FOUR_CC('G', 'I', 'F', '8'): { // GIF
             return WJImageTypeGIF;
         } break;
             
-        case YY_FOUR_CC(0x89, 'P', 'N', 'G'): {  // PNG
+        case WJ_FOUR_CC(0x89, 'P', 'N', 'G'): {  // PNG
             uint32_t tmp = *((uint32_t *)(bytes + 4));
-            if (tmp == YY_FOUR_CC('\r', '\n', 0x1A, '\n')) {
+            if (tmp == WJ_FOUR_CC('\r', '\n', 0x1A, '\n')) {
                 return WJImageTypePNG;
             }
         } break;
             
-        case YY_FOUR_CC('R', 'I', 'F', 'F'): { // WebP
+        case WJ_FOUR_CC('R', 'I', 'F', 'F'): { // WebP
             uint32_t tmp = *((uint32_t *)(bytes + 8));
-            if (tmp == YY_FOUR_CC('W', 'E', 'B', 'P')) {
+            if (tmp == WJ_FOUR_CC('W', 'E', 'B', 'P')) {
                 return WJImageTypeWebP;
             }
         } break;
             /*
-             case YY_FOUR_CC('B', 'P', 'G', 0xFB): { // BPG
+             case WJ_FOUR_CC('B', 'P', 'G', 0xFB): { // BPG
              return WJImageTypeBPG;
              } break;
              */
@@ -1106,15 +1106,15 @@ WJImageType WJImageDetectType(CFDataRef data) {
     
     uint16_t magic2 = *((uint16_t *)bytes);
     switch (magic2) {
-        case YY_TWO_CC('B', 'A'):
-        case YY_TWO_CC('B', 'M'):
-        case YY_TWO_CC('I', 'C'):
-        case YY_TWO_CC('P', 'I'):
-        case YY_TWO_CC('C', 'I'):
-        case YY_TWO_CC('C', 'P'): { // BMP
+        case WJ_TWO_CC('B', 'A'):
+        case WJ_TWO_CC('B', 'M'):
+        case WJ_TWO_CC('I', 'C'):
+        case WJ_TWO_CC('P', 'I'):
+        case WJ_TWO_CC('C', 'I'):
+        case WJ_TWO_CC('C', 'P'): { // BMP
             return WJImageTypeBMP;
         }
-        case YY_TWO_CC(0xFF, 0x4F): { // JPEG2000
+        case WJ_TWO_CC(0xFF, 0x4F): { // JPEG2000
             return WJImageTypeJPEG2000;
         }
     }
@@ -1175,7 +1175,7 @@ NSString *WJImageTypeGetExtension(WJImageType type) {
     }
 }
 
-CFDataRef YYCGImageCreateEncodedData(CGImageRef imageRef, WJImageType type, CGFloat quality) {
+CFDataRef WJCGImageCreateEncodedData(CGImageRef imageRef, WJImageType type, CGFloat quality) {
     if (!imageRef) return nil;
     quality = quality < 0 ? 0 : quality > 1 ? 1 : quality;
     
@@ -1289,7 +1289,7 @@ fail:
     return nil;
 }
 
-NSUInteger YYImageGetWebPFrameCount(CFDataRef webpData) {
+NSUInteger WJImageGetWebPFrameCount(CFDataRef webpData) {
     if (!webpData || CFDataGetLength(webpData) == 0) return 0;
     
     WebPData data = {CFDataGetBytePtr(webpData), CFDataGetLength(webpData)};
@@ -1300,7 +1300,7 @@ NSUInteger YYImageGetWebPFrameCount(CFDataRef webpData) {
     return webpFrameCount;
 }
 
-CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
+CGImageRef WJCGImageCreateWithWebPData(CFDataRef webpData,
                                        BOOL decodeForDisplay,
                                        BOOL useThreads,
                                        BOOL bypassFiltering,
@@ -1435,12 +1435,12 @@ CFDataRef WJCGImageCreateEncodedWebPData(CGImageRef imageRef, BOOL lossless, CGF
     return NULL;
 }
 
-NSUInteger YYImageGetWebPFrameCount(CFDataRef webpData) {
+NSUInteger WJImageGetWebPFrameCount(CFDataRef webpData) {
     NSLog(@"WebP decoder is disabled");
     return 0;
 }
 
-CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
+CGImageRef WJCGImageCreateWithWebPData(CFDataRef webpData,
                                        BOOL decodeForDisplay,
                                        BOOL useThreads,
                                        BOOL bypassFiltering,
@@ -2472,7 +2472,7 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
         [pngSizes addObject:[NSValue valueWithCGSize:size]];
         if (canvasWidth < size.width) canvasWidth = size.width;
         if (canvasHeight < size.height) canvasHeight = size.height;
-        CFDataRef frameData = YYCGImageCreateEncodedData(decoded, WJImageTypePNG, 1);
+        CFDataRef frameData = WJCGImageCreateEncodedData(decoded, WJImageTypePNG, 1);
         CFRelease(decoded);
         if (!frameData) return nil;
         [pngDatas addObject:(__bridge id)(frameData)];
@@ -2494,7 +2494,7 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
         CGImageRef extendedImage = CGBitmapContextCreateImage(context);
         CFRelease(context);
         if (!extendedImage) return nil;
-        CFDataRef frameData = YYCGImageCreateEncodedData(extendedImage, WJImageTypePNG, 1);
+        CFDataRef frameData = WJCGImageCreateEncodedData(extendedImage, WJImageTypePNG, 1);
         if (!frameData) {
             CFRelease(extendedImage);
             return nil;
@@ -2511,23 +2511,23 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
     uint32_t apngSequenceIndex = 0;
     
     uint32_t png_header[2];
-    png_header[0] = YY_FOUR_CC(0x89, 0x50, 0x4E, 0x47);
-    png_header[1] = YY_FOUR_CC(0x0D, 0x0A, 0x1A, 0x0A);
+    png_header[0] = WJ_FOUR_CC(0x89, 0x50, 0x4E, 0x47);
+    png_header[1] = WJ_FOUR_CC(0x0D, 0x0A, 0x1A, 0x0A);
     
     [result appendBytes:png_header length:8];
     
     for (int i = 0; i < info->chunk_num; i++) {
         yy_png_chunk_info *chunk = info->chunks + i;
         
-        if (!insertBefore && chunk->fourcc == YY_FOUR_CC('I', 'D', 'A', 'T')) {
+        if (!insertBefore && chunk->fourcc == WJ_FOUR_CC('I', 'D', 'A', 'T')) {
             insertBefore = YES;
             // insert acTL (APNG Control)
             uint32_t acTL[5] = {0};
-            acTL[0] = yy_swap_endian_uint32(8); //length
-            acTL[1] = YY_FOUR_CC('a', 'c', 'T', 'L'); // fourcc
-            acTL[2] = yy_swap_endian_uint32((uint32_t)pngDatas.count); // num frames
-            acTL[3] = yy_swap_endian_uint32((uint32_t)_loopCount); // num plays
-            acTL[4] = yy_swap_endian_uint32((uint32_t)crc32(0, (const Bytef *)(acTL + 1), 12)); //crc32
+            acTL[0] = wj_swap_endian_uint32(8); //length
+            acTL[1] = WJ_FOUR_CC('a', 'c', 'T', 'L'); // fourcc
+            acTL[2] = wj_swap_endian_uint32((uint32_t)pngDatas.count); // num frames
+            acTL[3] = wj_swap_endian_uint32((uint32_t)_loopCount); // num plays
+            acTL[4] = wj_swap_endian_uint32((uint32_t)crc32(0, (const Bytef *)(acTL + 1), 12)); //crc32
             [result appendBytes:acTL length:20];
             
             // insert fcTL (first frame control)
@@ -2542,16 +2542,16 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
             chunk_fcTL.blend_op = YY_PNG_BLEND_OP_SOURCE;
             
             uint8_t fcTL[38] = {0};
-            *((uint32_t *)fcTL) = yy_swap_endian_uint32(26); //length
-            *((uint32_t *)(fcTL + 4)) = YY_FOUR_CC('f', 'c', 'T', 'L'); // fourcc
+            *((uint32_t *)fcTL) = wj_swap_endian_uint32(26); //length
+            *((uint32_t *)(fcTL + 4)) = WJ_FOUR_CC('f', 'c', 'T', 'L'); // fourcc
             yy_png_chunk_fcTL_write(&chunk_fcTL, fcTL + 8);
-            *((uint32_t *)(fcTL + 34)) = yy_swap_endian_uint32((uint32_t)crc32(0, (const Bytef *)(fcTL + 4), 30));
+            *((uint32_t *)(fcTL + 34)) = wj_swap_endian_uint32((uint32_t)crc32(0, (const Bytef *)(fcTL + 4), 30));
             [result appendBytes:fcTL length:38];
             
             apngSequenceIndex++;
         }
         
-        if (!insertAfter && insertBefore && chunk->fourcc != YY_FOUR_CC('I', 'D', 'A', 'T')) {
+        if (!insertAfter && insertBefore && chunk->fourcc != WJ_FOUR_CC('I', 'D', 'A', 'T')) {
             insertAfter = YES;
             // insert fcTL and fdAT (APNG frame control and data)
             
@@ -2575,10 +2575,10 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
                 chunk_fcTL.blend_op = YY_PNG_BLEND_OP_SOURCE;
                 
                 uint8_t fcTL[38] = {0};
-                *((uint32_t *)fcTL) = yy_swap_endian_uint32(26); //length
-                *((uint32_t *)(fcTL + 4)) = YY_FOUR_CC('f', 'c', 'T', 'L'); // fourcc
+                *((uint32_t *)fcTL) = wj_swap_endian_uint32(26); //length
+                *((uint32_t *)(fcTL + 4)) = WJ_FOUR_CC('f', 'c', 'T', 'L'); // fourcc
                 yy_png_chunk_fcTL_write(&chunk_fcTL, fcTL + 8);
-                *((uint32_t *)(fcTL + 34)) = yy_swap_endian_uint32((uint32_t)crc32(0, (const Bytef *)(fcTL + 4), 30));
+                *((uint32_t *)(fcTL + 34)) = wj_swap_endian_uint32((uint32_t)crc32(0, (const Bytef *)(fcTL + 4), 30));
                 [result appendBytes:fcTL length:38];
                 
                 apngSequenceIndex++;
@@ -2586,16 +2586,16 @@ CGImageRef YYCGImageCreateWithWebPData(CFDataRef webpData,
                 // insert fdAT (frame data)
                 for (int d = 0; d < frame->chunk_num; d++) {
                     yy_png_chunk_info *dchunk = frame->chunks + d;
-                    if (dchunk->fourcc == YY_FOUR_CC('I', 'D', 'A', 'T')) {
-                        uint32_t length = yy_swap_endian_uint32(dchunk->length + 4);
+                    if (dchunk->fourcc == WJ_FOUR_CC('I', 'D', 'A', 'T')) {
+                        uint32_t length = wj_swap_endian_uint32(dchunk->length + 4);
                         [result appendBytes:&length length:4]; //length
-                        uint32_t fourcc = YY_FOUR_CC('f', 'd', 'A', 'T');
+                        uint32_t fourcc = WJ_FOUR_CC('f', 'd', 'A', 'T');
                         [result appendBytes:&fourcc length:4]; //fourcc
-                        uint32_t sq = yy_swap_endian_uint32(apngSequenceIndex);
+                        uint32_t sq = wj_swap_endian_uint32(apngSequenceIndex);
                         [result appendBytes:&sq length:4]; //data (sq)
                         [result appendBytes:(((uint8_t *)frameData.bytes) + dchunk->offset + 8) length:dchunk->length]; //data
                         uint8_t *bytes = ((uint8_t *)result.bytes) + result.length - dchunk->length - 8;
-                        uint32_t crc = yy_swap_endian_uint32((uint32_t)crc32(0, bytes, dchunk->length + 8));
+                        uint32_t crc = wj_swap_endian_uint32((uint32_t)crc32(0, bytes, dchunk->length + 8));
                         [result appendBytes:&crc length:4]; //crc
                         
                         apngSequenceIndex++;

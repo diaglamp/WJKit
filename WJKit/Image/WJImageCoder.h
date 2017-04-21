@@ -363,13 +363,13 @@ CG_EXTERN NSString *_Nullable WJImageTypeGetExtension(WJImageType type);
 CG_EXTERN CGColorSpaceRef WJCGColorSpaceGetDeviceRGB();
 
 /// Returns the shared DeviceGray color space.
-CG_EXTERN CGColorSpaceRef YYCGColorSpaceGetDeviceGray();
+CG_EXTERN CGColorSpaceRef WJCGColorSpaceGetDeviceGray();
 
 /// Returns whether a color space is DeviceRGB.
-CG_EXTERN BOOL YYCGColorSpaceIsDeviceRGB(CGColorSpaceRef space);
+CG_EXTERN BOOL WJCGColorSpaceIsDeviceRGB(CGColorSpaceRef space);
 
 /// Returns whether a color space is DeviceGray.
-CG_EXTERN BOOL YYCGColorSpaceIsDeviceGray(CGColorSpaceRef space);
+CG_EXTERN BOOL WJCGColorSpaceIsDeviceGray(CGColorSpaceRef space);
 
 
 
@@ -377,7 +377,7 @@ CG_EXTERN BOOL YYCGColorSpaceIsDeviceGray(CGColorSpaceRef space);
 CG_EXTERN UIImageOrientation WJUIImageOrientationFromEXIFValue(NSInteger value);
 
 /// Convert UIImageOrientation to EXIF orientation value.
-CG_EXTERN NSInteger YYUIImageOrientationToEXIFValue(UIImageOrientation orientation);
+CG_EXTERN NSInteger WJUIImageOrientationToEXIFValue(UIImageOrientation orientation);
 
 
 
@@ -432,7 +432,7 @@ CG_EXTERN CGImageRef _Nullable WJCGImageCreateAffineTransformCopy(CGImageRef ima
  @param quality   The quality (0.0~1.0)
  @return A new image data, or nil if an error occurs.
  */
-CG_EXTERN CFDataRef _Nullable YYCGImageCreateEncodedData(CGImageRef imageRef, WJImageType type, CGFloat quality);
+CG_EXTERN CFDataRef _Nullable WJCGImageCreateEncodedData(CGImageRef imageRef, WJImageType type, CGFloat quality);
 
 
 /**
@@ -446,7 +446,7 @@ CG_EXTERN BOOL WJImageWebPAvailable();
  @param webpData WebP data.
  @return Image frame count, or 0 if an error occurs.
  */
-CG_EXTERN NSUInteger YYImageGetWebPFrameCount(CFDataRef webpData);
+CG_EXTERN NSUInteger WJImageGetWebPFrameCount(CFDataRef webpData);
 
 /**
  Decode an image from WebP data, returns NULL if an error occurs.
@@ -462,7 +462,7 @@ CG_EXTERN NSUInteger YYImageGetWebPFrameCount(CFDataRef webpData);
  (speed down, and may lose some details).
  @return The decoded image, or NULL if an error occurs.
  */
-CG_EXTERN CGImageRef _Nullable YYCGImageCreateWithWebPData(CFDataRef webpData,
+CG_EXTERN CGImageRef _Nullable WJCGImageCreateWithWebPData(CFDataRef webpData,
                                                            BOOL decodeForDisplay,
                                                            BOOL useThreads,
                                                            BOOL bypassFiltering,
