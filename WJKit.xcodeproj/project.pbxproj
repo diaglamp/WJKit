@@ -281,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				8B7A22341E6D530D0008727C /* Base */,
+				CC64A5F31EADABB20002F3EE /* Cache */,
 				CC525C251E9F9D55008CD9FB /* Image */,
 				CC64A5EF1EAD9FC90002F3EE /* Utility */,
 				CC600CA01EA064BA007B2FA9 /* Vendor */,
@@ -392,6 +393,13 @@
 				CC64A5F11EAD9FF10002F3EE /* WJWeakProxy.m */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		CC64A5F31EADABB20002F3EE /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		CCEAC0E31E7BDD97008E456B /* Resources */ = {

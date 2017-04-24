@@ -204,6 +204,44 @@ typedef NS_ENUM(NSUInteger, WJAnimatedImageType) {
     [self imageChanged];
 }
 
+- (void)imageChanged {
+    WJAnimatedImageType newType = [self currentImageType];
+    id newVisibleImage = [self imageForType:newType];
+    NSUInteger newImageFrameCount = 0;
+    BOOL hasContentsRect = NO;
+    if ([newVisibleImage isKindOfClass:[UIImage class]] &&
+        [newVisibleImage conformsToProtocol:@protocol(WJAnimatedImage)]) {
+        newImageFrameCount = ((UIImage<WJAnimatedImage> *) newVisibleImage).animatedImageFrameCount;
+        if (newImageFrameCount > 1) {
+            hasContentsRect = [((UIImage<WJAnimatedImage> *) newVisibleImage) respondsToSelector:@selector(animatedImageContentsRectAtIndex:)];
+        }
+    }
+    if (!hasContentsRect && _curImageHasContentsRect) {
+        if (!CGRectEqualToRect(self.layer.contentsRect, CGRectMake(0, 0, 1, 1)) ) {
+            [CATransaction begin];
+            [CATransaction setDisableActions:YES];
+            self.layer.contentsRect = CGRectMake(0, 0, 1, 1);
+            [CATransaction commit];
+        }
+    }
+    _curImageHasContentsRect = hasContentsRect;
+    if (hasContentsRect) {
+        CGRect rect = [((UIImage<WJAnimatedImage> *) newVisibleImage) animatedImageContentsRectAtIndex:0];
+        [self setContentsRect:rect forImage:newVisibleImage];
+    }
+    
+    if (newImageFrameCount > 1) {
+        [self resetAnimated];
+        _curAnimatedImage = newVisibleImage;
+        _curFrame = newVisibleImage;
+        _totalLoop = _curAnimatedImage.animatedImageLoopCount;
+        _totalFrameCount = _curAnimatedImage.animatedImageFrameCount;
+        [self calcMaxBufferCount];
+    }
+    [self setNeedsDisplay];
+    [self didMoved];
+}
+
 // init the animated params.
 - (void)resetAnimated {
     dispatch_once(&_onceToken, ^{
@@ -248,44 +286,6 @@ typedef NS_ENUM(NSUInteger, WJAnimatedImageType) {
     _loopEnd = NO;
     _bufferMiss = NO;
     _incrBufferCount = 0;
-}
-
-- (void)imageChanged {
-    WJAnimatedImageType newType = [self currentImageType];
-    id newVisibleImage = [self imageForType:newType];
-    NSUInteger newImageFrameCount = 0;
-    BOOL hasContentsRect = NO;
-    if ([newVisibleImage isKindOfClass:[UIImage class]] &&
-        [newVisibleImage conformsToProtocol:@protocol(WJAnimatedImage)]) {
-        newImageFrameCount = ((UIImage<WJAnimatedImage> *) newVisibleImage).animatedImageFrameCount;
-        if (newImageFrameCount > 1) {
-            hasContentsRect = [((UIImage<WJAnimatedImage> *) newVisibleImage) respondsToSelector:@selector(animatedImageContentsRectAtIndex:)];
-        }
-    }
-    if (!hasContentsRect && _curImageHasContentsRect) {
-        if (!CGRectEqualToRect(self.layer.contentsRect, CGRectMake(0, 0, 1, 1)) ) {
-            [CATransaction begin];
-            [CATransaction setDisableActions:YES];
-            self.layer.contentsRect = CGRectMake(0, 0, 1, 1);
-            [CATransaction commit];
-        }
-    }
-    _curImageHasContentsRect = hasContentsRect;
-    if (hasContentsRect) {
-        CGRect rect = [((UIImage<WJAnimatedImage> *) newVisibleImage) animatedImageContentsRectAtIndex:0];
-        [self setContentsRect:rect forImage:newVisibleImage];
-    }
-    
-    if (newImageFrameCount > 1) {
-        [self resetAnimated];
-        _curAnimatedImage = newVisibleImage;
-        _curFrame = newVisibleImage;
-        _totalLoop = _curAnimatedImage.animatedImageLoopCount;
-        _totalFrameCount = _curAnimatedImage.animatedImageFrameCount;
-        [self calcMaxBufferCount];
-    }
-    [self setNeedsDisplay];
-    [self didMoved];
 }
 
 // dynamically adjust buffer size for current memory.
