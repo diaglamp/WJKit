@@ -79,6 +79,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)decrementNetworkActivityCount;
 
+/// Returns YES in App Extension.
++ (BOOL)isAppExtension;
+
+/// Same as sharedApplication, but returns nil in App Extension.
++ (nullable UIApplication *)sharedExtensionApplication;
+
 @end
 
 NS_ASSUME_NONNULL_END

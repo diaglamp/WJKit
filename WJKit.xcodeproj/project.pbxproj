@@ -38,6 +38,7 @@
 		CC64A5F91EADCD060002F3EE /* WJMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5F81EADCD060002F3EE /* WJMemoryCache.m */; };
 		CC64A5FC1EADCD190002F3EE /* WJDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5FB1EADCD190002F3EE /* WJDiskCache.m */; };
 		CC64A5FF1EADCDC20002F3EE /* WJKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5FE1EADCDC20002F3EE /* WJKVStorage.m */; };
+		CC64A6011EAE31170002F3EE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC64A6001EAE31170002F3EE /* libsqlite3.tbd */; };
 		CC98B8241E972F6A0034FD81 /* UIDevice+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */; };
 		CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */; };
 		CCD58C3F1E9DC94600A5D56D /* UIFont+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD58C3E1E9DC94600A5D56D /* UIFont+WJAdd.m */; };
@@ -164,6 +165,7 @@
 		CC64A5FB1EADCD190002F3EE /* WJDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDiskCache.m; sourceTree = "<group>"; };
 		CC64A5FD1EADCDC20002F3EE /* WJKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJKVStorage.h; sourceTree = "<group>"; };
 		CC64A5FE1EADCDC20002F3EE /* WJKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJKVStorage.m; sourceTree = "<group>"; };
+		CC64A6001EAE31170002F3EE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CC98B8221E972F6A0034FD81 /* UIDevice+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WJAdd.h"; sourceTree = "<group>"; };
 		CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WJAdd.m"; sourceTree = "<group>"; };
 		CCC7FB1F1E8B588A00B1152B /* WJCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCGUtilities.h; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC64A6011EAE31170002F3EE /* libsqlite3.tbd in Frameworks */,
 				CC600CA21EA064BA007B2FA9 /* WebP.framework in Frameworks */,
 				CC3F183E1E7A692600C711AD /* libz.tbd in Frameworks */,
 			);
@@ -372,6 +375,7 @@
 		CC3F183C1E7A692600C711AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC64A6001EAE31170002F3EE /* libsqlite3.tbd */,
 				CC3F183D1E7A692600C711AD /* libz.tbd */,
 			);
 			name = Frameworks;
