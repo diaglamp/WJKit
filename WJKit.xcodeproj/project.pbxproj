@@ -33,6 +33,7 @@
 		CC59CCB71E95DC0800D440F6 /* UIScrollView+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC59CCB61E95DC0800D440F6 /* UIScrollView+WJAdd.m */; };
 		CC600CA21EA064BA007B2FA9 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC600CA11EA064BA007B2FA9 /* WebP.framework */; };
 		CC602ED01E9CFC63000615E4 /* UIApplication+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */; };
+		CC64A5F21EAD9FF10002F3EE /* WJWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5F11EAD9FF10002F3EE /* WJWeakProxy.m */; };
 		CC98B8241E972F6A0034FD81 /* UIDevice+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */; };
 		CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */; };
 		CCD58C3F1E9DC94600A5D56D /* UIFont+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD58C3E1E9DC94600A5D56D /* UIFont+WJAdd.m */; };
@@ -149,6 +150,8 @@
 		CC600CA11EA064BA007B2FA9 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		CC602ECE1E9CFC63000615E4 /* UIApplication+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+WJAdd.h"; sourceTree = "<group>"; };
 		CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+WJAdd.m"; sourceTree = "<group>"; };
+		CC64A5F01EAD9FF10002F3EE /* WJWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWeakProxy.h; sourceTree = "<group>"; };
+		CC64A5F11EAD9FF10002F3EE /* WJWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWeakProxy.m; sourceTree = "<group>"; };
 		CC98B8221E972F6A0034FD81 /* UIDevice+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WJAdd.h"; sourceTree = "<group>"; };
 		CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WJAdd.m"; sourceTree = "<group>"; };
 		CCC7FB1F1E8B588A00B1152B /* WJCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCGUtilities.h; sourceTree = "<group>"; };
@@ -279,6 +282,7 @@
 			children = (
 				8B7A22341E6D530D0008727C /* Base */,
 				CC525C251E9F9D55008CD9FB /* Image */,
+				CC64A5EF1EAD9FC90002F3EE /* Utility */,
 				CC600CA01EA064BA007B2FA9 /* Vendor */,
 			);
 			path = WJKit;
@@ -379,6 +383,15 @@
 				CC600CA11EA064BA007B2FA9 /* WebP.framework */,
 			);
 			path = Vendor;
+			sourceTree = "<group>";
+		};
+		CC64A5EF1EAD9FC90002F3EE /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A5F01EAD9FF10002F3EE /* WJWeakProxy.h */,
+				CC64A5F11EAD9FF10002F3EE /* WJWeakProxy.m */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		CCEAC0E31E7BDD97008E456B /* Resources */ = {
@@ -627,6 +640,7 @@
 			files = (
 				8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */,
 				CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */,
+				CC64A5F21EAD9FF10002F3EE /* WJWeakProxy.m in Sources */,
 				CC525C311E9FAA1D008CD9FB /* NSBundle+WJAdd.m in Sources */,
 				8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */,
 				CCD58C3F1E9DC94600A5D56D /* UIFont+WJAdd.m in Sources */,

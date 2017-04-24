@@ -23,8 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self netWorkRequestTest];
+    [self webPImageTest];
     
+}
+
+- (void)webPImageTest {
+    UIImage *image = [UIImage imageNamed:@"google@2x.webp"];
+    [self imageTestBase:image];
 }
 
 - (void)netWorkRequestTest {
