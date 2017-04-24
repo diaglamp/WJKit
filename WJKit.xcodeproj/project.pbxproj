@@ -34,6 +34,10 @@
 		CC600CA21EA064BA007B2FA9 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC600CA11EA064BA007B2FA9 /* WebP.framework */; };
 		CC602ED01E9CFC63000615E4 /* UIApplication+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */; };
 		CC64A5F21EAD9FF10002F3EE /* WJWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5F11EAD9FF10002F3EE /* WJWeakProxy.m */; };
+		CC64A5F61EADCCDB0002F3EE /* WJCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5F51EADCCDB0002F3EE /* WJCache.m */; };
+		CC64A5F91EADCD060002F3EE /* WJMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5F81EADCD060002F3EE /* WJMemoryCache.m */; };
+		CC64A5FC1EADCD190002F3EE /* WJDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5FB1EADCD190002F3EE /* WJDiskCache.m */; };
+		CC64A5FF1EADCDC20002F3EE /* WJKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A5FE1EADCDC20002F3EE /* WJKVStorage.m */; };
 		CC98B8241E972F6A0034FD81 /* UIDevice+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */; };
 		CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC7FB201E8B588A00B1152B /* WJCGUtilities.m */; };
 		CCD58C3F1E9DC94600A5D56D /* UIFont+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD58C3E1E9DC94600A5D56D /* UIFont+WJAdd.m */; };
@@ -152,6 +156,14 @@
 		CC602ECF1E9CFC63000615E4 /* UIApplication+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+WJAdd.m"; sourceTree = "<group>"; };
 		CC64A5F01EAD9FF10002F3EE /* WJWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWeakProxy.h; sourceTree = "<group>"; };
 		CC64A5F11EAD9FF10002F3EE /* WJWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWeakProxy.m; sourceTree = "<group>"; };
+		CC64A5F41EADCCDB0002F3EE /* WJCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCache.h; sourceTree = "<group>"; };
+		CC64A5F51EADCCDB0002F3EE /* WJCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCache.m; sourceTree = "<group>"; };
+		CC64A5F71EADCD060002F3EE /* WJMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJMemoryCache.h; sourceTree = "<group>"; };
+		CC64A5F81EADCD060002F3EE /* WJMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJMemoryCache.m; sourceTree = "<group>"; };
+		CC64A5FA1EADCD190002F3EE /* WJDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDiskCache.h; sourceTree = "<group>"; };
+		CC64A5FB1EADCD190002F3EE /* WJDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDiskCache.m; sourceTree = "<group>"; };
+		CC64A5FD1EADCDC20002F3EE /* WJKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJKVStorage.h; sourceTree = "<group>"; };
+		CC64A5FE1EADCDC20002F3EE /* WJKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJKVStorage.m; sourceTree = "<group>"; };
 		CC98B8221E972F6A0034FD81 /* UIDevice+WJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WJAdd.h"; sourceTree = "<group>"; };
 		CC98B8231E972F6A0034FD81 /* UIDevice+WJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WJAdd.m"; sourceTree = "<group>"; };
 		CCC7FB1F1E8B588A00B1152B /* WJCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCGUtilities.h; sourceTree = "<group>"; };
@@ -398,6 +410,14 @@
 		CC64A5F31EADABB20002F3EE /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				CC64A5F41EADCCDB0002F3EE /* WJCache.h */,
+				CC64A5F51EADCCDB0002F3EE /* WJCache.m */,
+				CC64A5F71EADCD060002F3EE /* WJMemoryCache.h */,
+				CC64A5F81EADCD060002F3EE /* WJMemoryCache.m */,
+				CC64A5FA1EADCD190002F3EE /* WJDiskCache.h */,
+				CC64A5FB1EADCD190002F3EE /* WJDiskCache.m */,
+				CC64A5FD1EADCDC20002F3EE /* WJKVStorage.h */,
+				CC64A5FE1EADCDC20002F3EE /* WJKVStorage.m */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -649,13 +669,16 @@
 				8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */,
 				CCC7FB211E8B588A00B1152B /* WJCGUtilities.m in Sources */,
 				CC64A5F21EAD9FF10002F3EE /* WJWeakProxy.m in Sources */,
+				CC64A5F91EADCD060002F3EE /* WJMemoryCache.m in Sources */,
 				CC525C311E9FAA1D008CD9FB /* NSBundle+WJAdd.m in Sources */,
 				8B7A223A1E6D53BC0008727C /* NSObject+WJAdd.m in Sources */,
+				CC64A5F61EADCCDB0002F3EE /* WJCache.m in Sources */,
 				CCD58C3F1E9DC94600A5D56D /* UIFont+WJAdd.m in Sources */,
 				CC525C281E9F9D85008CD9FB /* WJImage.m in Sources */,
 				8B2E823E1E781EFE008AECAB /* NSNumber+WJAdd.m in Sources */,
 				CC3F18381E7A2C8600C711AD /* NSDictionary+WJAdd.m in Sources */,
 				CC3F18441E7AB46D00C711AD /* UIColor+WJAdd.m in Sources */,
+				CC64A5FC1EADCD190002F3EE /* WJDiskCache.m in Sources */,
 				8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */,
 				CC525C341E9FAEC7008CD9FB /* WJImageCoder.m in Sources */,
 				8B7A22051E6D52040008727C /* ViewController.m in Sources */,
@@ -663,6 +686,7 @@
 				CC602ED01E9CFC63000615E4 /* UIApplication+WJAdd.m in Sources */,
 				CC525C2E1E9FA0B6008CD9FB /* WJAnimatedImageView.m in Sources */,
 				CCEAC08C1E7BCF10008E456B /* UIImage+WJAdd.m in Sources */,
+				CC64A5FF1EADCDC20002F3EE /* WJKVStorage.m in Sources */,
 				8B7A22021E6D52040008727C /* AppDelegate.m in Sources */,
 				CC342C3C1E7964B9004EAA2F /* NSArray+WJAdd.m in Sources */,
 				CC59CCB71E95DC0800D440F6 /* UIScrollView+WJAdd.m in Sources */,
