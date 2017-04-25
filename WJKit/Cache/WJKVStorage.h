@@ -53,6 +53,23 @@ typedef NS_ENUM(NSUInteger, WJKVStorageType) {
 @property (nullable, nonatomic, strong) NSData *extendedData; ///< extended data (nil if no extended data)
 @end
 
+
+/**
+ WJKVStorage is a key-value storage based on sqlite and file system.
+ Typically, you should not use this class directly.
+ 
+ @discussion The designated initializer for WJKVStorage is `initWithPath:type:`.
+ After initialized, a directory is created based on the `path` to hold key-value data.
+ Once initialized you should not read or write this directory without the instance.
+ 
+ You may compile the latest version of sqlite and ignore the libsqlite3.dylib in
+ iOS system to get 2x~4x speed up.
+ 
+ @warning The instance of this class is *NOT* thread safe, you need to make sure
+ that there's only one thread to access the instance at the same time. If you really
+ need to process large amounts of data in multi-thread, you should split the data
+ to multiple KVStorage instance (sharding).
+ */
 @interface WJKVStorage : NSObject
 
 #pragma mark - Attribute
