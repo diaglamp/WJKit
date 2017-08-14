@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FA9E23D1F418BDC00D072DE /* NoEmptyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA9E23C1F418BDC00D072DE /* NoEmptyClass.m */; };
 		8B2E82381E77DDB4008AECAB /* NSObject+WJAddForKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E82371E77DDB4008AECAB /* NSObject+WJAddForKVO.m */; };
 		8B2E823B1E77F60F008AECAB /* NSString+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E823A1E77F60F008AECAB /* NSString+WJAdd.m */; };
 		8B2E823E1E781EFE008AECAB /* NSNumber+WJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E823D1E781EFE008AECAB /* NSNumber+WJAdd.m */; };
@@ -105,6 +106,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1FA9E23B1F418BDC00D072DE /* NoEmptyClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoEmptyClass.h; sourceTree = "<group>"; };
+		1FA9E23C1F418BDC00D072DE /* NoEmptyClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoEmptyClass.m; sourceTree = "<group>"; };
 		8B2E82351E77DC2A008AECAB /* WJKitMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJKitMacro.h; sourceTree = "<group>"; };
 		8B2E82361E77DDB4008AECAB /* NSObject+WJAddForKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WJAddForKVO.h"; sourceTree = "<group>"; };
 		8B2E82371E77DDB4008AECAB /* NSObject+WJAddForKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WJAddForKVO.m"; sourceTree = "<group>"; };
@@ -246,6 +249,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FA9E2371F418BA400D072DE /* Empty1 */ = {
+			isa = PBXGroup;
+			children = (
+				1FA9E23E1F418C2000D072DE /* SubEmpty */,
+			);
+			path = Empty1;
+			sourceTree = "<group>";
+		};
+		1FA9E2381F418BAD00D072DE /* Empty2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Empty2;
+			sourceTree = "<group>";
+		};
+		1FA9E23A1F418BCA00D072DE /* NoEmpty1 */ = {
+			isa = PBXGroup;
+			children = (
+				1FA9E23B1F418BDC00D072DE /* NoEmptyClass.h */,
+				1FA9E23C1F418BDC00D072DE /* NoEmptyClass.m */,
+			);
+			path = NoEmpty1;
+			sourceTree = "<group>";
+		};
+		1FA9E23E1F418C2000D072DE /* SubEmpty */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubEmpty;
+			sourceTree = "<group>";
+		};
 		8B7A21F11E6D52040008727C = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +303,9 @@
 		8B7A21FC1E6D52040008727C /* WJKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1FA9E23A1F418BCA00D072DE /* NoEmpty1 */,
+				1FA9E2381F418BAD00D072DE /* Empty2 */,
+				1FA9E2371F418BA400D072DE /* Empty1 */,
 				8B7A22001E6D52040008727C /* AppDelegate.h */,
 				8B7A22011E6D52040008727C /* AppDelegate.m */,
 				8B7A22031E6D52040008727C /* ViewController.h */,
@@ -697,6 +734,7 @@
 				CC3F183B1E7A345300C711AD /* NSDate+WJAdd.m in Sources */,
 				CC98B8241E972F6A0034FD81 /* UIDevice+WJAdd.m in Sources */,
 				8B6E61DE1E6D97BA001DAA39 /* UIViewController+WJAdd.m in Sources */,
+				1FA9E23D1F418BDC00D072DE /* NoEmptyClass.m in Sources */,
 				CC3F18411E7A7EB800C711AD /* UIView+WJAdd.m in Sources */,
 				8B7A21FF1E6D52040008727C /* main.m in Sources */,
 			);
