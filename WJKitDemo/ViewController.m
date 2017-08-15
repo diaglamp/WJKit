@@ -12,6 +12,7 @@
 #import <ImageIO/ImageIO.h>
 #import "WJKitMacro.h"
 #import "UIApplication+WJAdd.h"
+#import "WJAlertController.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UIImageView *imageView;
@@ -22,8 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self webPImageTest];
     
 }
 
@@ -87,6 +86,19 @@
     [_imageView sizeToFit];
     _imageView.center = CGPointMake(self.view.frame.size.width / 2, 100 + _imageView.frame.size.height / 2);
     [self.view addSubview:_imageView];
+}
+
+- (void)alertControllerTest {
+    WJAlertController *alert = [WJAlertController actionSheetWithTitle:@"alertTitle"];
+    [alert addActionWithTitle:@"confirm" handler:^{
+        NSLog(@"hello alert!");
+    }];
+    [alert addActionWithTitle:@"cancle" handler:nil];
+    [alert show];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self alertControllerTest];
 }
 
 @end
